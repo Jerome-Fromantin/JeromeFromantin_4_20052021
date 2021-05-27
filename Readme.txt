@@ -8,9 +8,10 @@ Travail réalisé :
 - Clonage en local de ce nouveau repository, créant un sous-dossier,
 - Copie des fichiers originaux à la racine pour pouvoir les modifier,
 - Création de ce fichier Readme,
-- Upload de tous ces fichiers sur le repository.
+- Upload de tous ces fichiers sur le repository,
+- Amélioration du code existant.
 
-Travail à faire (issues du repository original, excepté la 1ère) :
+Travail à faire (issues du repository original, excepté la première) :
 - Amélioration du code existant,
 - Tests manuels,
 - Ajouter confirmation quand envoi réussi,
