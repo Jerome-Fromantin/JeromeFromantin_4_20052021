@@ -19,3 +19,13 @@ function editNav() {
   function launchModal() {
     modalbg.style.display = "block";
   }
+
+  // Valider les entrées
+  // function validate() {}
+
+  // Fermer le formulaire
+  /* function closeModal() {
+    modalbg.style.display = "none";
+  }
+  Avec le clic sur span class="close".
+  */
