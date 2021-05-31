@@ -9,7 +9,9 @@ Travail réalisé :
 - Copie des fichiers originaux à la racine pour pouvoir les modifier,
 - Création de ce fichier Readme,
 - Upload de tous ces fichiers sur le repository,
-- Amélioration du code existant.
+- Amélioration du code existant,
+- Ajout de validations du formulaire avec JavaScript,
+- Premiers tests manuels sur la vue mobile sous Firefox et correction d'erreurs d'affichage.
 
 Travail à faire (issues du repository original, excepté la première) :
 - Amélioration du code existant,
