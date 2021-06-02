@@ -32,7 +32,7 @@
           <h1 class="hero-headline">Marathon national<br>de jeux vidéos</h1>
           <p class="hero-text">
             Vous aimez jouer ? Notre prochain évènement gaming est ouvert
-            aux réservations... Places limitées !
+            aux réservations... Places limitées&nbsp;!
           </p>
           <button class="btn-signup modal-btn">
             je m'inscris
@@ -50,7 +50,7 @@
 
       <div class="bground">
         <div class="content">
-          <span class="close"></span>
+          <span class="close" id="close-btn"></span>
           <div class="modal-body">
             <form
               name="reserve"
@@ -66,7 +66,7 @@
                   id="first"
                   name="first"
                 ><br>
-                <!-- Eventuellement rajouter les attributs "minlength="2"" et "maxlength="20"". -->
+                <div id="first-err"></div>
               </div>
 
               <div class="formData">
@@ -77,7 +77,7 @@
                   id="last"
                   name="last"
                 ><br>
-                <!-- Eventuellement rajouter les attributs "minlength="2"" et "maxlength="20"". -->
+                <div id="last-err"></div>
               </div>
 
               <div class="formData">
@@ -88,6 +88,7 @@
                   id="email"
                   name="email"
                 ><br>
+                <div id="email-err"></div>
               </div>
 
               <div class="formData">
@@ -98,6 +99,7 @@
                   id="birthdate"
                   name="birthdate"
                 ><br>
+                <div id="birthdate-err"></div>
               </div>
 
               <div class="formData">
@@ -199,7 +201,8 @@
                 <label for="sq-checkbox1" class="checkbox2-label">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
-                </label>
+                </label><!--<br>
+                <div id="sq-checkbox1-err"></div>-->
                 <br>
                 <input
                   class="checkbox-input"
