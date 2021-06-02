@@ -11,12 +11,13 @@ Travail réalisé :
 - Upload de tous ces fichiers sur le repository,
 - Amélioration du code existant,
 - Ajout de validations du formulaire avec JavaScript,
-- Premiers tests manuels sur la vue mobile sous Firefox et correction d'erreurs d'affichage.
+- Premiers tests manuels sur l'apparence de l'interface utilisateur et les fonctionnalités de ses champs et boutons,
+- Correction des erreurs d'affichage pour différentes résolutions sous Firefox et Google Chrome,
+- Amélioration des validations du formulaire avec JavaScript,
+- Ajout de messages d'erreur spécifiques,
+- Ajout d'une confirmation (en boite d'alerte) quand l'envoi du formulaire est réussi.
 
 Travail à faire (issues du repository original, excepté la première) :
 - Amélioration du code existant,
 - Tests manuels,
-- Ajouter confirmation quand envoi réussi,
-- Ajouter validation ou message d'erreur,
-- Implémenter entrées du formulaire,
 - TODO : fermer la modale.
