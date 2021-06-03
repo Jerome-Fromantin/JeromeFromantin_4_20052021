@@ -50,7 +50,7 @@
 
       <div class="bground">
         <div class="content">
-          <span class="close" id="close-btn"></span>
+          <span class="close" id="close-btn" onclick="closeModal()"></span>
           <div class="modal-body">
             <form
               name="reserve"
@@ -67,6 +67,7 @@
                   name="first"
                 ><br>
                 <div id="first-err"></div>
+                <div id="first-val"></div>
               </div>
 
               <div class="formData">
@@ -78,17 +79,19 @@
                   name="last"
                 ><br>
                 <div id="last-err"></div>
+                <div id="last-val"></div>
               </div>
 
               <div class="formData">
                 <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
-                  type="email"
+                  type="text"
                   id="email"
                   name="email"
                 ><br>
                 <div id="email-err"></div>
+                <div id="email-val"></div>
               </div>
 
               <div class="formData">
@@ -100,6 +103,7 @@
                   name="birthdate"
                 ><br>
                 <div id="birthdate-err"></div>
+                <div id="birthdate-val"></div>
               </div>
 
               <div class="formData">
@@ -201,8 +205,8 @@
                 <label for="sq-checkbox1" class="checkbox2-label">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
-                </label><!--<br>
-                <div id="sq-checkbox1-err"></div>-->
+                </label>
+                <div id="sq-checkbox1-err"></div>
                 <br>
                 <input
                   class="checkbox-input"

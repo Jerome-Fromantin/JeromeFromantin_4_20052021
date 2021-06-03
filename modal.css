@@ -259,7 +259,7 @@
     }
   }
   
-  /* Tout l'arrière-plan quand le formulaire est ouvert. */
+  /* Tout l'arrière-plan de la fenêtre modale quand le formulaire est ouvert. */
   .bground {
     display: none;
     position: fixed;
@@ -272,7 +272,7 @@
     background-color: rgba(26, 39, 156, 0.4);
   }
   
-  /* Fenêtre modale du formulaire. */
+  /* Bloc central du formulaire. */
   /* Tout le contenu. */
   .content {
     background: #232323;
@@ -326,6 +326,16 @@
   .close:after {
     transform: rotate(-45deg);
   }
+  
+  @keyframes modalclose {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-150px);
+    }
+  }
 
   /* Le formulaire lui-même. */
   .modal-body {
@@ -353,6 +363,16 @@
     display: block;
     font-size: 0.5em;/*0.4em;*/
     color: #e54858;
+    text-align: right;
+    line-height: 0.4;/*0.3;*/
+    margin: 7px 0;
+    transition: 0.3s;
+  }
+
+  #first-val, #last-val, #email-val, #birthdate-val {
+    display: block;
+    font-size: 0.5em;/*0.4em;*/
+    color: #279e7a;
     text-align: right;
     line-height: 0.4;/*0.3;*/
     margin: 7px 0;

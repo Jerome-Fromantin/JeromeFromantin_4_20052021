@@ -39,17 +39,6 @@ function validate() {
     firstName.focus();
     return false;
   }
-  /*
-  else if (firstName.value.length >= 2 && firstName.value.length <= 20) { // Si le prénom est valide.
-    let firstErrMess = document.createElement("p");
-    let firstErr = document.getElementById("first-err");
-    firstErr.appendChild(firstErrMess);
-    firstErrMess.textContent = "Votre prénom est validé !"
-    first.style.border = "2px #279e7a solid";
-    lastName.focus();
-    return false;
-  }
-  */
   // Si le prénom n'est pas vide mais qu'il a seulement 1 caractère ou plus de 20.
   else if (firstName.value.length < 2 || firstName.value.length > 20) {
     let firstErrMess = document.createElement("p");
@@ -59,6 +48,14 @@ function validate() {
     first.style.border = "2px #e54858 solid";
     firstName.focus();
     return false;
+  }
+  // Si le prénom est valide.
+  else {
+    let firstValMess = document.createElement("p");
+    let firstVal = document.getElementById("first-val");
+    firstVal.appendChild(firstValMess);
+    firstValMess.textContent = "Votre prénom est validé !";
+    first.style.border = "2px #279e7a solid";
   }
 
   let lastName = document.forms["reserve"]["last"]; // Variable du nom.
@@ -81,6 +78,13 @@ function validate() {
     lastName.focus();
     return false;
   }
+  else { // Si le nom est valide.
+    let lastValMess = document.createElement("p");
+    let lastVal = document.getElementById("last-val");
+    lastVal.appendChild(lastValMess);
+    lastValMess.textContent = "Votre nom est validé !";
+    last.style.border = "2px #279e7a solid";
+  }
   
   let email = document.forms["reserve"]["email"]; // Variable de l'e-mail.
   if (email.value == "") { // Si l'e-mail n'est pas rempli.
@@ -92,12 +96,52 @@ function validate() {
     email.focus();
     return false;
   }
-  // Si l'e-mail a cette valeur de test uniquement.
-  else if (email.value == "test@mail.com") {
+  // Si l'e-mail n'est pas vide et qu'il est valide selon la regex.
+  else if (/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email.value)) {
+    if (email.value == "test@mail.com") { // Mais si l'e-mail a cette valeur de test uniquement.
+      let emailErrMess = document.createElement("p");
+      let emailErr = document.getElementById("email-err");
+      emailErr.appendChild(emailErrMess);
+      emailErrMess.textContent = "Ceci est une adresse de test.";
+      email.style.border = "2px #e54858 solid";
+      email.focus();
+      return false;
+    }
+  // Explication de la syntaxe de la regex :
+  // /^ : Ouverture de la regex.
+  // [] : Tous les caractères à l'intérieur des crochets sont acceptés.
+  // a-zA-Z0-9.!#$%&’*+/=?^_`{|}~ : minuscules de a à z et/ou majuscules de A à Z et/ou chiffres de 0 à 9
+  // et/ou tous les caractères spéciaux écrits.
+
+  // LE "-" AVANT LE CROCHET FERMANT A-T-IL UN SENS PARTICULIER ???
+
+  // +@ : Les caractères précédents doivent être suivis d'une arobase.
+  // [a-zA-Z0-9-] : Suivi de minuscules de a à z et/ou majuscules de A à Z et/ou chiffres de 0 à 9.
+
+  // +(?: : SUIVI DE CES 3 CARACTERES ???
+
+  // \. : L'antislash est le caractère d'échappement pour le point qui doit être compris comme
+  // caractère unique de l'e-mail et non comme l'ensemble signifiant "tous les caractères".
+  // [a-zA-Z0-9-] : Suivi de minuscules de a à z et/ou majuscules de A à Z et/ou chiffres de 0 à 9.
+
+  // +)* : SUIVI DE CES 2 CARACTERES ???
+
+  // $/ : Fermeture de la regex.
+
+  // .test(email.value) est la fonction vérifiant que la valeur du champ "email" respecte la regex précédente.
+    else { // Sinon, si l'e-mail est vraiment valide.
+      let emailValMess = document.createElement("p");
+      let emailVal = document.getElementById("email-val");
+      emailVal.appendChild(emailValMess);
+      emailValMess.textContent = "Votre adresse e-mail est validée !";
+      email.style.border = "2px #279e7a solid";
+    }
+  }
+  else { // Si l'e-mail n'est pas vide et qu'il est invalide.
     let emailErrMess = document.createElement("p");
     let emailErr = document.getElementById("email-err");
     emailErr.appendChild(emailErrMess);
-    emailErrMess.textContent = "Ceci est une valeur de test.";
+    emailErrMess.textContent = "Veuillez écrire une adresse e-mail valide.";
     email.style.border = "2px #e54858 solid";
     email.focus();
     return false;
@@ -113,13 +157,21 @@ function validate() {
     birthdate.focus();
     return false;
   }
+  else { // Si la date de naissance est valide.
+    let birthdateValMess = document.createElement("p");
+    let birthdateVal = document.getElementById("birthdate-val");
+    birthdateVal.appendChild(birthdateValMess);
+    birthdateValMess.textContent = "Votre date de naissance est validée !";
+    birthdate.style.border = "2px #279e7a solid";
+  }
   
   let sqCheckbox = document.forms["reserve"]["sq-checkbox1"]; // Variable de la case des conditions d'utilisation.
-  if (sqCheckbox.checked == true) { /*(!sqCheckbox == false)*/
+  if (sqCheckbox.checked == true) { //(!sqCheckbox == false)
     alert('La case de "J\'ai lu et accepté..." doit rester cochée.');
     //return false;
   }
   else {
+  //if (sqCheckbox.checked !== true) {
     //let sqCheckboxErrMess = document.createElement("p");
     //let sqCheckboxErr = document.getElementById("sqCheckbox-err");
     //sqCheckboxErr.appendChild(sqCheckboxErrMess);
@@ -127,18 +179,16 @@ function validate() {
     alert("Cette case n'est pas cochée.");
     //return false;
   }
-
+  
   alert("Ce formulaire est validé !");
   return true;
 }
 
-// Fonction de fermeture du formulaire.
-/*
-function closeModal() {
+// Fonction d'écoute du clic sur bouton de fermeture pour la fonction suivante.
 let closeBtn = document.getElementById("close-btn");
-closeBtn.addEventListener('click', onClick() {
-  closeBtn.innerHTML = "Coucou !";
-})
-modalbg.style.display = "none";
+closeBtn.addEventListener('click', closeModal);
+
+// Fonction de fermeture du formulaire.
+function closeModal() {
+  modalbg.style.display = "none";
 }
-*/
