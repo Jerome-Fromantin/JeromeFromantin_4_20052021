@@ -15,9 +15,9 @@ Travail réalisé :
 - Correction des erreurs d'affichage pour différentes résolutions sous Firefox et Google Chrome,
 - Amélioration des validations du formulaire avec JavaScript,
 - Ajout de messages d'erreur spécifiques,
-- Ajout d'une confirmation (en boite d'alerte) quand l'envoi du formulaire est réussi.
+- Ajout d'une confirmation (en boite d'alerte) quand l'envoi du formulaire est réussi,
+- Ajout de la fonctionnalité de fermeture du formulaire.
 
 Travail à faire (issues du repository original, excepté la première) :
 - Amélioration du code existant,
-- Tests manuels,
-- TODO : fermer la modale.
+- Tests manuels.
