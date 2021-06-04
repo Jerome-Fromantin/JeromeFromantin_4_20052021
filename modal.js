@@ -15,7 +15,7 @@ const formData = document.querySelectorAll(".formData");
 // Fonction d'écoute des clics sur boutons pour la fonction suivante.
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-// Fonction d'apparition du formulaire.
+// Fonction d'apparition de la page modale : formulaire et fond bleuté.
 function launchModal() {
   modalbg.style.display = "block";
 }
@@ -23,75 +23,81 @@ function launchModal() {
 // Fonction de validation des entrées du formulaire.
 function validate() {
 
-  /*
-  Insérer éventuellement ici les 3 premières lignes
-  de chaque "if" après le règlement du problème
-  de répétition des différents messages d'erreurs.
-  */
+  // On crée la variable qui récupère l'input du prénom.
+  let firstName = document.forms["reserve"]["first"];
+  // On crée la variable "firstNameLength".
+  // Cette variable est égale à la longueur du prénom entré auquel on a appliqué trim().
+  // "trim()" est une fonction qui supprime les espaces en début et fin de chaîne.
+  // Cela garantit qu'une chaîne contenant des espaces et 0 ou 1 lettre ne sera pas validée.
+  let firstNameLength = ((firstName.value).trim()).length;
+  // On crée la variable qui récupère l'élément qui servira de support aux messages d'erreur.
+  let firstErr = document.getElementById("first-mess");
+  // On crée la variable qui récupère le même élément support au message de validation.
+  let firstVal = document.getElementById("first-mess");
 
-  let firstName = document.forms["reserve"]["first"]; // Variable du prénom.
-  if (firstName.value == "") { // Si le prénom n'est pas rempli.
-    let firstErrMess = document.createElement("p"); // On crée une variable qui contient un élément "p" créé.
-    let firstErr = document.getElementById("first-err"); // On crée une variable qui récupère l'élément parent.
-    firstErr.appendChild(firstErrMess); // On insère l'élément enfant dans l'élément parent.
-    firstErrMess.textContent = "Veuillez ne pas oublier d'écrire votre prénom."
+  let lastName = document.forms["reserve"]["last"]; // Input du nom.
+  let lastNameLength = ((lastName.value).trim()).length;
+  let lastErr = document.getElementById("last-mess");
+  let lastVal = document.getElementById("last-mess");
+
+  let email = document.forms["reserve"]["email"]; // Input de l'e-mail.
+  let emailLength = ((email.value).trim()).length;
+  let emailErr = document.getElementById("email-mess");
+  let emailVal = document.getElementById("email-mess");
+  
+  let birthdate = document.forms["reserve"]["birthdate"]; // Input de la date de naissance.
+  let birthdateErr = document.getElementById("birthdate-mess");
+  let birthdateVal = document.getElementById("birthdate-mess");
+  
+  // Input de la case des conditions d'utilisation.
+  let sqCheckbox = document.forms["reserve"]["sq-checkbox1"];
+  let sqCheckboxErr = document.getElementById("sq-checkbox-mess");
+  let sqCheckboxVal = document.getElementById("sq-checkbox-mess");
+
+  if (firstNameLength == 0) { // Si le prénom n'est pas rempli.
+    // On insère le message dans l'élément.
+    firstErr.innerHTML = "<p>Veuillez écrire votre prénom.</p>"
+    // On ajoute une bordure rouge au champ de saisie.
     first.style.border = "2px #e54858 solid";
     firstName.focus();
     return false;
   }
   // Si le prénom n'est pas vide mais qu'il a seulement 1 caractère ou plus de 20.
-  else if (firstName.value.length < 2 || firstName.value.length > 20) {
-    let firstErrMess = document.createElement("p");
-    let firstErr = document.getElementById("first-err");
-    firstErr.appendChild(firstErrMess);
-    firstErrMess.textContent = "Veuillez écrire un prénom contenant entre 2 et 20 caractères inclus.";
+  else if (firstNameLength < 2 || firstNameLength > 20) {
+    firstErr.innerHTML = "<p>Veuillez écrire un prénom contenant entre 2 et 20 caractères inclus.</p>";
     first.style.border = "2px #e54858 solid";
     firstName.focus();
     return false;
   }
-  // Si le prénom est valide.
-  else {
-    let firstValMess = document.createElement("p");
-    let firstVal = document.getElementById("first-val");
-    firstVal.appendChild(firstValMess);
-    firstValMess.textContent = "Votre prénom est validé !";
+  else { // Si le prénom est valide.
+    // Le message s'écrit en vert.
+    firstVal.style.color = "#279e7a";
+    firstVal.innerHTML = "<p>Votre prénom est validé !</p>";
+    // On ajoute une bordure verte au champ de saisie.
     first.style.border = "2px #279e7a solid";
   }
 
-  let lastName = document.forms["reserve"]["last"]; // Variable du nom.
-  if (lastName.value == "") { // Si le nom n'est pas rempli.
-    let lastErrMess = document.createElement("p");
-    let lastErr = document.getElementById("last-err");
-    lastErr.appendChild(lastErrMess);
-    lastErrMess.textContent = "Veuillez ne pas oublier d'écrire votre nom.";
+  if (lastNameLength == "") { // Si le nom n'est pas rempli.
+    lastErr.innerHTML = "<p>Veuillez écrire votre nom.</p>";
     last.style.border = "2px #e54858 solid";
     lastName.focus();
     return false;
   }
   // Si le nom n'est pas vide mais qu'il a seulement 1 caractère ou plus de 30.
-  else if (lastName.value.length < 2 || lastName.value.length > 30) {
-    let lastErrMess = document.createElement("p");
-    let lastErr = document.getElementById("last-err");
-    lastErr.appendChild(lastErrMess);
-    lastErrMess.textContent = "Veuillez écrire un nom contenant entre 2 et 30 caractères inclus.";
+  else if (lastNameLength < 2 || lastNameLength > 30) {
+    lastErr.innerHTML = "<p>Veuillez écrire un nom contenant entre 2 et 30 caractères inclus.</p>";
     last.style.border = "2px #e54858 solid";
     lastName.focus();
     return false;
   }
   else { // Si le nom est valide.
-    let lastValMess = document.createElement("p");
-    let lastVal = document.getElementById("last-val");
-    lastVal.appendChild(lastValMess);
-    lastValMess.textContent = "Votre nom est validé !";
+    lastVal.style.color = "#279e7a";
+    lastVal.innerHTML = "<p>Votre nom est validé !</p>";
     last.style.border = "2px #279e7a solid";
   }
   
-  let email = document.forms["reserve"]["email"]; // Variable de l'e-mail.
-  if (email.value == "") { // Si l'e-mail n'est pas rempli.
-    let emailErrMess = document.createElement("p");
-    let emailErr = document.getElementById("email-err");
-    emailErr.appendChild(emailErrMess);
-    emailErrMess.textContent = "Veuillez ne pas oublier d'écrire votre adresse e-mail.";
+  if (emailLength == "") { // Si l'e-mail n'est pas rempli.
+    emailErr.innerHTML = "<p>Veuillez écrire votre adresse e-mail.</p>";
     email.style.border = "2px #e54858 solid";
     email.focus();
     return false;
@@ -99,10 +105,7 @@ function validate() {
   // Si l'e-mail n'est pas vide et qu'il est valide selon la regex.
   else if (/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email.value)) {
     if (email.value == "test@mail.com") { // Mais si l'e-mail a cette valeur de test uniquement.
-      let emailErrMess = document.createElement("p");
-      let emailErr = document.getElementById("email-err");
-      emailErr.appendChild(emailErrMess);
-      emailErrMess.textContent = "Ceci est une adresse de test.";
+      emailErr.innerHTML = "<p>Ceci est une adresse de test.</p>";
       email.style.border = "2px #e54858 solid";
       email.focus();
       return false;
@@ -110,74 +113,50 @@ function validate() {
   // Explication de la syntaxe de la regex :
   // /^ : Ouverture de la regex.
   // [] : Tous les caractères à l'intérieur des crochets sont acceptés.
-  // a-zA-Z0-9.!#$%&’*+/=?^_`{|}~ : minuscules de a à z et/ou majuscules de A à Z et/ou chiffres de 0 à 9
+  // a-zA-Z0-9.!#$%&’*+/=?^_`{|}~- : minuscules de a à z et/ou majuscules de A à Z et/ou chiffres de 0 à 9
   // et/ou tous les caractères spéciaux écrits.
-
-  // LE "-" AVANT LE CROCHET FERMANT A-T-IL UN SENS PARTICULIER ???
-
   // +@ : Les caractères précédents doivent être suivis d'une arobase.
   // [a-zA-Z0-9-] : Suivi de minuscules de a à z et/ou majuscules de A à Z et/ou chiffres de 0 à 9.
-
-  // +(?: : SUIVI DE CES 3 CARACTERES ???
-
+  // +(? : Le point d'interrogation indique que la parenthèse ouvrante peut être présente 0 à 1 fois.
   // \. : L'antislash est le caractère d'échappement pour le point qui doit être compris comme
   // caractère unique de l'e-mail et non comme l'ensemble signifiant "tous les caractères".
   // [a-zA-Z0-9-] : Suivi de minuscules de a à z et/ou majuscules de A à Z et/ou chiffres de 0 à 9.
-
-  // +)* : SUIVI DE CES 2 CARACTERES ???
-
+  // +)* : L'astérisque indique que la parenthèse fermante peut être présente 0 à plusieurs fois.
   // $/ : Fermeture de la regex.
 
   // .test(email.value) est la fonction vérifiant que la valeur du champ "email" respecte la regex précédente.
     else { // Sinon, si l'e-mail est vraiment valide.
-      let emailValMess = document.createElement("p");
-      let emailVal = document.getElementById("email-val");
-      emailVal.appendChild(emailValMess);
-      emailValMess.textContent = "Votre adresse e-mail est validée !";
+      emailVal.style.color = "#279e7a";
+      emailVal.innerHTML = "<p>Votre adresse e-mail est validée !</p>";
       email.style.border = "2px #279e7a solid";
     }
   }
   else { // Si l'e-mail n'est pas vide et qu'il est invalide.
-    let emailErrMess = document.createElement("p");
-    let emailErr = document.getElementById("email-err");
-    emailErr.appendChild(emailErrMess);
-    emailErrMess.textContent = "Veuillez écrire une adresse e-mail valide.";
+    emailErr.innerHTML = "<p>Veuillez écrire une adresse e-mail valide.</p>";
     email.style.border = "2px #e54858 solid";
     email.focus();
     return false;
   }
   
-  let birthdate = document.forms["reserve"]["birthdate"]; // Variable de la date de naissance.
   if (birthdate.value == "") { // Si la date de naissance n'est pas remplie.
-    let birthdateErrMess = document.createElement("p");
-    let birthdateErr = document.getElementById("birthdate-err");
-    birthdateErr.appendChild(birthdateErrMess);
-    birthdateErrMess.textContent = "Veuillez ne pas oublier d'indiquer votre date de naissance.";
+    birthdateErr.innerHTML = "<p>Veuillez indiquer votre date de naissance.</p>";
     birthdate.style.border = "2px #e54858 solid";
     birthdate.focus();
     return false;
   }
   else { // Si la date de naissance est valide.
-    let birthdateValMess = document.createElement("p");
-    let birthdateVal = document.getElementById("birthdate-val");
-    birthdateVal.appendChild(birthdateValMess);
-    birthdateValMess.textContent = "Votre date de naissance est validée !";
+    birthdateVal.style.color = "#279e7a";
+    birthdateVal.innerHTML = "<p>Votre date de naissance est validée !</p>";
     birthdate.style.border = "2px #279e7a solid";
   }
   
-  let sqCheckbox = document.forms["reserve"]["sq-checkbox1"]; // Variable de la case des conditions d'utilisation.
-  if (sqCheckbox.checked == true) { //(!sqCheckbox == false)
-    alert('La case de "J\'ai lu et accepté..." doit rester cochée.');
-    //return false;
+  if (sqCheckbox.checked == false) { // Si la case des conditions est décochée.
+    sqCheckboxErr.innerHTML = "<p>Vous devez avoir lu et accepté les conditions d'utilisation.</p>";
+    return false;
   }
-  else {
-  //if (sqCheckbox.checked !== true) {
-    //let sqCheckboxErrMess = document.createElement("p");
-    //let sqCheckboxErr = document.getElementById("sqCheckbox-err");
-    //sqCheckboxErr.appendChild(sqCheckboxErrMess);
-    //sqCheckboxErrMess.textContent = "Cette case doit obligatoirement être cochée.";
-    alert("Cette case n'est pas cochée.");
-    //return false;
+  else { // Si la case des conditions est cochée.
+    sqCheckboxVal.style.color = "#279e7a";
+    sqCheckboxVal.innerHTML = "<p>Merci d'avoir lu et accepté les conditions d'utilisation.</p>";
   }
   
   alert("Ce formulaire est validé !");

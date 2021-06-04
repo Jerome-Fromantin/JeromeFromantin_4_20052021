@@ -56,7 +56,6 @@
               name="reserve"
               action="index.html"
               method="post"
-              onsubmit="return validate()"
             >
               <div class="formData">
                 <label for="first">Prénom</label><br>
@@ -66,8 +65,7 @@
                   id="first"
                   name="first"
                 ><br>
-                <div id="first-err"></div>
-                <div id="first-val"></div>
+                <div id="first-mess"></div>
               </div>
 
               <div class="formData">
@@ -78,8 +76,7 @@
                   id="last"
                   name="last"
                 ><br>
-                <div id="last-err"></div>
-                <div id="last-val"></div>
+                <div id="last-mess"></div>
               </div>
 
               <div class="formData">
@@ -90,8 +87,7 @@
                   id="email"
                   name="email"
                 ><br>
-                <div id="email-err"></div>
-                <div id="email-val"></div>
+                <div id="email-mess"></div>
               </div>
 
               <div class="formData">
@@ -102,8 +98,7 @@
                   id="birthdate"
                   name="birthdate"
                 ><br>
-                <div id="birthdate-err"></div>
-                <div id="birthdate-val"></div>
+                <div id="birthdate-mess"></div>
               </div>
 
               <div class="formData">
@@ -206,8 +201,7 @@
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
-                <div id="sq-checkbox1-err"></div>
-                <br>
+                <span id="sq-checkbox-mess"></span>
                 <input
                   class="checkbox-input"
                   type="checkbox"
@@ -224,6 +218,7 @@
                 class="btn-submit"
                 type="submit"
                 value="C'est parti"
+                onclick="return validate()"
               >
             </form>
           </div>
