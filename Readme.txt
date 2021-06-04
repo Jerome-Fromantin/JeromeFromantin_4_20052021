@@ -16,8 +16,8 @@ Travail réalisé :
 - Amélioration des validations du formulaire avec JavaScript,
 - Ajout de messages d'erreur spécifiques,
 - Ajout d'une confirmation (en boite d'alerte) quand l'envoi du formulaire est réussi,
-- Ajout de la fonctionnalité de fermeture du formulaire.
+- Ajout de la fonctionnalité de fermeture du formulaire,
+- Correction des erreurs de validation en JavaScript.
 
-Travail à faire (issues du repository original, excepté la première) :
-- Amélioration du code existant,
-- Tests manuels.
+Travail à faire (éventuellement) :
+- Dernières amélioration à apporter.
