@@ -50,7 +50,7 @@
 
       <div class="bground">
         <div class="content">
-          <span class="close" id="close-btn" onclick="closeModal()"></span>
+          <span class="close" id="close-btn1" onclick="closeModal()"></span>
           <div class="modal-body">
             <form
               name="reserve"
@@ -83,7 +83,7 @@
                 <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
-                  type="text"
+                  type="email"
                   id="email"
                   name="email"
                 ><br>
@@ -97,6 +97,8 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  min="1921-01-01"
+                  max="2003-12-31"
                 ><br>
                 <div id="birthdate-mess"></div>
               </div>
@@ -108,9 +110,10 @@
                   type="number"
                   id="quantity"
                   name="quantity"
-                  min="0"
+                  min="1"
                   max="99"
-                >
+                ><br>
+                <div id="quantity-mess"></div>
               </div>
 
               <p class="text-label">Quelles villes ?</p>
@@ -186,7 +189,8 @@
                 <label for="location6" class="checkbox-label">
                   <span class="checkbox-icon"></span>
                   Portland
-                </label>
+                </label><br>
+                <div id="locations-mess"></div>
               </div>
 
               <div class="formData">
@@ -221,6 +225,21 @@
                 onclick="return validate()"
               >
             </form>
+          </div>
+          <div class="valid-content">
+            <span class="close" id="close-btn2" onclick="closeValid()"></span>
+            <div class="modal-body">
+              <form name="validation" action="index.html" method="post">
+                <p id="validation">Merci d'avoir fourni
+                <br>vos données d'enregistrement.</p>
+                <input
+                  class="btn-submit"
+                  type="submit"
+                  value="Valider et fermer"
+                  onclick="return validate()"
+                >
+              </form>
+            </div>
           </div>
         </div>
       </div>

@@ -149,7 +149,7 @@
     margin-top: 57px;
   }
 
-  /* Voir ".btn-signup" ligne 486 à 507 (+ ou -). */
+  /* Voir ".btn-signup" ligne 464 à 485. */
   
   .modal-btn {
     cursor: pointer;
@@ -343,7 +343,8 @@
     margin: 15px auto;
   }
 
-  #first-mess, #last-mess, #email-mess, #birthdate-mess, #sq-checkbox-mess {
+  #first-mess, #last-mess, #email-mess, #birthdate-mess, #quantity-mess,
+  #locations-mess, #sq-checkbox-mess {
     display: block;
     font-size: 0.5em;/*0.4em;*/
     color: #e54858;
@@ -481,4 +482,23 @@
     font-size: 1.3rem;
     padding: 15px 23px;
     margin: 59px 0 0 0;
+  }
+
+  /* Fenêtre de validation finale. */
+  .valid-content {
+    display: none;
+    background: #232323;
+    position: absolute; /* Par rapport à ".content" ligne 277. */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+
+  /* Paragraphe de validation. */
+  #validation {
+    text-align: center
   }
