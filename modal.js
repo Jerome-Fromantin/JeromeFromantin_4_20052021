@@ -23,6 +23,8 @@ function launchModal() {
 // Fonction de validation des entrées du formulaire.
 function validate() {
 
+  /*********** CHAMP DU PRENOM. ***********/
+
   // On crée la variable qui récupère l'input du prénom.
   let firstName = document.forms["reserve"]["first"];
   // On crée la variable "firstNameLength".
@@ -35,38 +37,6 @@ function validate() {
   // On crée la variable qui récupère le même élément support au message de validation.
   let firstVal = document.getElementById("first-mess");
 
-  let lastName = document.forms["reserve"]["last"]; // Input du nom.
-  let lastNameLength = ((lastName.value).trim()).length;
-  let lastErr = document.getElementById("last-mess");
-  let lastVal = document.getElementById("last-mess");
-
-  let email = document.forms["reserve"]["email"]; // Input de l'e-mail.
-  let emailLength = ((email.value).trim()).length;
-  let emailErr = document.getElementById("email-mess");
-  let emailVal = document.getElementById("email-mess");
-  
-  let birthdate = document.forms["reserve"]["birthdate"]; // Input de la date de naissance.
-  let birthdateErr = document.getElementById("birthdate-mess");
-  let birthdateVal = document.getElementById("birthdate-mess");
-  
-  let quantity = document.forms["reserve"]["quantity"]; // Input du nombre de tournois.
-  let quantityErr = document.getElementById("quantity-mess");
-  let quantityVal = document.getElementById("quantity-mess");
-  
-  let location1 = document.forms["reserve"]["location1"]; // Inputs des villes.
-  let location2 = document.forms["reserve"]["location2"];
-  let location3 = document.forms["reserve"]["location3"];
-  let location4 = document.forms["reserve"]["location4"];
-  let location5 = document.forms["reserve"]["location5"];
-  let location6 = document.forms["reserve"]["location6"];
-  let locationsErr = document.getElementById("locations-mess");
-  let locationsVal = document.getElementById("locations-mess");
-  
-  // Input de la case des conditions d'utilisation.
-  let sqCheckbox = document.forms["reserve"]["sq-checkbox1"];
-  let sqCheckboxErr = document.getElementById("sq-checkbox-mess");
-  let sqCheckboxVal = document.getElementById("sq-checkbox-mess");
-
   if (firstNameLength == 0) { // Si le prénom n'est pas rempli.
     // Le message s'écrit en rouge.
     firstErr.style.color = "#e54858";
@@ -77,7 +47,7 @@ function validate() {
     firstName.focus();
     return false;
   }
-  // Si le prénom n'est pas vide mais qu'il a seulement 1 caractère ou plus de 20.
+  // Sinon (si le prénom n'est pas vide), s'il a seulement 1 caractère ou plus de 20.
   else if (firstNameLength < 2 || firstNameLength > 20) {
     firstErr.style.color = "#e54858";
     firstErr.innerHTML = "<p>Veuillez écrire un prénom contenant entre 2 et 20 caractères inclus.</p>";
@@ -85,7 +55,7 @@ function validate() {
     firstName.focus();
     return false;
   }
-  else { // Si le prénom est valide.
+  else { // Sinon (si le prénom est valide).
     // Le message s'écrit en vert.
     firstVal.style.color = "#279e7a";
     firstVal.innerHTML = "<p>Votre prénom est validé !</p>";
@@ -93,14 +63,21 @@ function validate() {
     first.style.border = "2px #279e7a solid";
   }
 
-  if (lastNameLength == "") { // Si le nom n'est pas rempli.
+  /*********** CHAMP DU NOM. ***********/
+
+  let lastName = document.forms["reserve"]["last"]; // Input du nom.
+  let lastNameLength = ((lastName.value).trim()).length;
+  let lastErr = document.getElementById("last-mess");
+  let lastVal = document.getElementById("last-mess");
+
+  if (lastNameLength == 0) { // Si le nom n'est pas rempli.
     lastErr.style.color = "#e54858";
     lastErr.innerHTML = "<p>Veuillez écrire votre nom.</p>";
     last.style.border = "2px #e54858 solid";
     lastName.focus();
     return false;
   }
-  // Si le nom n'est pas vide mais qu'il a seulement 1 caractère ou plus de 30.
+  // Sinon (si le nom n'est pas vide), s'il a seulement 1 caractère ou plus de 30.
   else if (lastNameLength < 2 || lastNameLength > 30) {
     lastErr.style.color = "#e54858";
     lastErr.innerHTML = "<p>Veuillez écrire un nom contenant entre 2 et 30 caractères inclus.</p>";
@@ -108,20 +85,27 @@ function validate() {
     lastName.focus();
     return false;
   }
-  else { // Si le nom est valide.
+  else { // Sinon (si le nom est valide).
     lastVal.style.color = "#279e7a";
     lastVal.innerHTML = "<p>Votre nom est validé !</p>";
     last.style.border = "2px #279e7a solid";
   }
+
+  /*********** CHAMP DE L'E-MAIL. ***********/
+
+  let email = document.forms["reserve"]["email"]; // Input de l'e-mail.
+  let emailLength = ((email.value).trim()).length;
+  let emailErr = document.getElementById("email-mess");
+  let emailVal = document.getElementById("email-mess");
   
-  if (emailLength == "") { // Si l'e-mail n'est pas rempli.
+  if (emailLength == 0) { // Si l'e-mail n'est pas rempli.
     emailErr.style.color = "#e54858";
     emailErr.innerHTML = "<p>Veuillez écrire votre adresse e-mail.</p>";
     email.style.border = "2px #e54858 solid";
     email.focus();
     return false;
   }
-  // Si l'e-mail n'est pas vide et qu'il est valide selon la regex.
+  // Sinon (si l'e-mail n'est pas vide), s'il est valide selon la regex.
   else if (/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email.value)) {
     if (email.value == "test@mail.com") { // Mais si l'e-mail a cette valeur de test uniquement.
       emailErr.style.color = "#e54858";
@@ -145,62 +129,146 @@ function validate() {
   // $/ : Fermeture de la regex.
 
   // .test(email.value) est la fonction vérifiant que la valeur du champ "email" respecte la regex précédente.
-    else { // Sinon, si l'e-mail est vraiment valide.
+    else { // Sinon (si l'e-mail est vraiment valide).
       emailVal.style.color = "#279e7a";
       emailVal.innerHTML = "<p>Votre adresse e-mail est validée !</p>";
       email.style.border = "2px #279e7a solid";
     }
   }
-  else { // Si l'e-mail n'est pas vide et qu'il est invalide.
+  else { // Sinon (si l'e-mail est invalide).
     emailErr.style.color = "#e54858";
     emailErr.innerHTML = "<p>Veuillez écrire une adresse e-mail valide.</p>";
     email.style.border = "2px #e54858 solid";
     email.focus();
     return false;
   }
-  
-  if (birthdate.value == "") { // Si la date de naissance n'est pas remplie.
+
+  /*********** CHAMP DE LA DATE DE NAISSANCE. ***********/
+
+  let birthdate = document.forms["reserve"]["birthdate"]; // Input de la date de naissance.
+  let birth = birthdate.value;
+  let birthdateErr = document.getElementById("birthdate-mess");
+  let birthdateVal = document.getElementById("birthdate-mess");
+
+  // Récupération de la date du jour (jour - mois - année).
+  let dateDuJour = new Date();
+  // Récupération du jour seulement pour le jour de majorité.
+  let jourMajorite = dateDuJour.getDate();
+  // Récupération du mois seulement pour le mois de majorité.
+  // "+ 1" est nécessaire car les mois vont de 0 à 11, pas de 1 à 12.
+  let moisMajorite = (dateDuJour.getMonth() + 1);
+  // Récupération de l'année seulement pour l'année de majorité.
+  // Il faut donc enlever 18 ans.
+  let anneeMajorite = (dateDuJour.getFullYear()-18);
+
+  // La valeur du champ "date de naissance" est une chaîne de caractères au format "yyyy-MM-dd".
+  // split("-") permet de couper cette chaîne à chaque caractère "-".
+  // Ici, cela crée un tableau contenant 3 valeurs, [yyyy, MM, dd], récupéré par la variable.
+  let splitBirth = birth.split("-");
+
+  if (birth == "") { // Si la date de naissance n'est pas remplie.
     birthdateErr.style.color = "#e54858";
     birthdateErr.innerHTML = "<p>Veuillez indiquer votre date de naissance.</p>";
     birthdate.style.border = "2px #e54858 solid";
     birthdate.focus();
     return false;
   }
-  // Si la date de naissance n'est pas vide mais invalide (> à 100 ans ou < à 18 ans).
-  else if (birthdate.value < "1921-01-01" || birthdate.value > "2003-12-31") {
+  // Sinon (si la date de naissance n'est pas vide), si date antérieure au 1er janvier 1921.
+  else if (birth < "1921-01-01") {
     birthdateErr.style.color = "#e54858";
-    birthdateErr.innerHTML = "<p>Veuillez indiquer une année postérieure à 1920 et antérieure à 2004.</p>";
+    birthdateErr.innerHTML = "<p>Veuillez indiquer une année postérieure à 1920.</p>";
     birthdate.style.border = "2px #e54858 solid";
     birthdate.focus();
     return false;
   }
-  else { // Si la date de naissance est valide.
+  // Sinon (si l'année de naissance est postérieure ou égale à 1921), si antérieur à l'année de majorité (2003).
+  else if (splitBirth[0] < anneeMajorite) { // splitBirth[0] est la 1ère valeur du tableau, c'est l'année.
     birthdateVal.style.color = "#279e7a";
     birthdateVal.innerHTML = "<p>Votre date de naissance est validée !</p>";
     birthdate.style.border = "2px #279e7a solid";
   }
+  // Sinon (si postérieur ou égal à l'année de majorité), si postérieur.
+  else if (splitBirth[0] > anneeMajorite) {
+    birthdateErr.style.color = "#e54858";
+    birthdateErr.innerHTML = "<p>Vous n'êtes pas majeur, vous ne pouvez vous inscrire.</p>";
+    birthdate.style.border = "2px #e54858 solid";
+    birthdate.focus();
+    return false;
+  }
+  // Sinon (si égal à l'année de majorité), si mois de naissance antérieur à mois de majorité.
+  else if (splitBirth[1] < moisMajorite) { // splitBirth[1] est la 2ème valeur du tableau, c'est le mois.
+    birthdateVal.style.color = "#279e7a";
+    birthdateVal.innerHTML = "<p>Majeur de l'année, votre date de naissance est validée !</p>";
+    birthdate.style.border = "2px #279e7a solid";
+  }
+  // Sinon (si postérieur ou égal au mois de majorité), si postérieur.
+  else if (splitBirth[1] > moisMajorite) {
+    birthdateErr.style.color = "#e54858";
+    birthdateErr.innerHTML = "<p>Vous serez majeur dans l'année, vous ne pouvez encore vous inscrire.</p>";
+    birthdate.style.border = "2px #e54858 solid";
+    birthdate.focus();
+    return false;
+  }
+  // Sinon (si égal au mois de majorité), si jour de naissance antérieur à jour de majorité.
+  else if (splitBirth[2] < jourMajorite) { // splitBirth[2] est la 3ème valeur du tableau, c'est le jour.
+    birthdateVal.style.color = "#279e7a";
+    birthdateVal.innerHTML = "<p>Majeur du mois, votre date de naissance est validée !</p>";
+    birthdate.style.border = "2px #279e7a solid";
+  }
+  // Sinon (si postérieur ou égal au jour de majorité), si postérieur.
+  else if (splitBirth[2] > jourMajorite) {
+    birthdateErr.style.color = "#e54858";
+    birthdateErr.innerHTML = "<p>Vous serez majeur dans le mois, vous ne pouvez encore vous inscrire.</p>";
+    birthdate.style.border = "2px #e54858 solid";
+    birthdate.focus();
+    return false;
+  }
+  // Sinon (si égal au jour de majorité).
+  else {
+    birthdateVal.style.color = "#279e7a";
+    birthdateVal.innerHTML = "<p>Majeur aujourd'hui, votre date de naissance est validée !</p>";
+    birthdate.style.border = "2px #279e7a solid";
+  }
+
+  /*********** CHAMP DU NOMBRE DE TOURNOIS. ***********/
+
+  let quantity = document.forms["reserve"]["quantity"]; // Input du nombre de tournois.
+  let quantite = quantity.value;
+  let quantityErr = document.getElementById("quantity-mess");
+  let quantityVal = document.getElementById("quantity-mess");
   
-  if (quantity.value == "") { // Si le nombre de tournois n'est pas rempli.
+  if (quantite == "") { // Si le nombre de tournois n'est pas rempli.
     quantityErr.style.color = "#e54858";
     quantityErr.innerHTML = "<p>Veuillez indiquer le nombre de tournois auxquels vous avez participé.</p>";
     quantity.style.border = "2px #e54858 solid";
     quantity.focus();
     return false;
   }
-  // Si le nombre de tournois n'est pas vide mais inférieur à 1 ou supérieur ou égal à 100.
-  else if (quantity.value < 1 || quantity.value >= 100) {
+  // Sinon (si le nombre de tournois n'est pas vide), s'il est inférieur à 1 ou supérieur ou égal à 100.
+  else if (quantite < 1 || quantite >= 100) {
     quantityErr.style.color = "#e54858";
     quantityErr.innerHTML = "<p>Veuillez indiquer un nombre entre 1 et 99 inclus.</p>";
     quantity.style.border = "2px #e54858 solid";
     quantity.focus();
     return false;
   }
-  else { // Si le nombre de tournois est valide.
+  else { // Sinon (si le nombre de tournois est valide).
     quantityVal.style.color = "#279e7a";
     quantityVal.innerHTML = "<p>Ce nombre est validé !</p>";
     quantity.style.border = "2px #279e7a solid";
   }
 
+  /*********** CHAMP DU CHOIX DES VILLES. ***********/
+
+  let location1 = document.forms["reserve"]["location1"]; // Input de New York.
+  let location2 = document.forms["reserve"]["location2"]; // Input de San Francisco.
+  let location3 = document.forms["reserve"]["location3"]; // Input de Seattle.
+  let location4 = document.forms["reserve"]["location4"]; // Input de Chicago.
+  let location5 = document.forms["reserve"]["location5"]; // Input de Boston.
+  let location6 = document.forms["reserve"]["location6"]; // Input de Portland.
+  let locationsErr = document.getElementById("locations-mess");
+  let locationsVal = document.getElementById("locations-mess");
+  
   // Si aucune ville n'est cochée.
   if (location1.checked == false && location2.checked == false && location3.checked == false
   && location4.checked == false && location5.checked == false && location6.checked == false) {
@@ -208,7 +276,7 @@ function validate() {
     locationsErr.innerHTML = "<p>Vous devez cocher au moins l'une des villes.</p>";
     return false;
   }
-  else {
+  else { // Sinon (si une ou plusieurs villes sont cochées).
     // Si une seule ville est cochée.
     if (location1.checked) {
       locationsVal.style.color = "#279e7a";
@@ -306,7 +374,13 @@ function validate() {
       locationsVal.innerHTML = "<p>Vous avez coché toutes les villes, votre choix est validé !</p>";
     }
   }
-  
+
+  /*********** CASE DES CONDITIONS D'UTILISATION. ***********/
+
+  let sqCheckbox = document.forms["reserve"]["sq-checkbox1"]; // Input de la case.
+  let sqCheckboxErr = document.getElementById("sq-checkbox-mess");
+  let sqCheckboxVal = document.getElementById("sq-checkbox-mess");
+
   if (sqCheckbox.checked == false) { // Si la case des conditions est décochée.
     sqCheckboxErr.style.color = "#e54858";
     sqCheckboxErr.innerHTML = "<p>Vous devez avoir lu et accepté les conditions d'utilisation.</p>";
@@ -317,13 +391,8 @@ function validate() {
     sqCheckboxVal.innerHTML = "<p>Merci d'avoir lu et accepté les conditions d'utilisation.</p>";
   }
   
-  //alert("Ce formulaire est validé !");
-  alert("Validation provisoire");
-  return true;
-  /*function openValid() { // Fonction d'ouverture de la validation.
-    let validContent = document.querySelector(".valid-content");
-    validContent.style.display = "block";
-  }*/
+  openValid();
+  return false;
 }
 
 // Fonction d'écoute du clic sur bouton de fermeture du formulaire pour la fonction suivante.
@@ -335,16 +404,17 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-// Fonction d'écoute du clic sur bouton de fermeture de la validation pour la fonction suivante.
+// Fonction d'ouverture de la validation.
 let validContent = document.querySelector(".valid-content");
+function openValid() {
+  validContent.style.display = "block";
+}
+
+// Fonction d'écoute du clic sur bouton de fermeture de la validation pour la fonction suivante.
 let closeBtn2 = document.getElementById("close-btn2");
 closeBtn2.addEventListener('click', closeValid);
 
 // Fonction de fermeture de la validation.
-function closeValid(event) {
-  event.stopPropagation();
-  //let validation = document.getElementById("validation");
-  //validation.style.color = "red";//"block";
+function closeValid() {
   validContent.style.display = "none";
-  alert("Ferme-toi !");
 }
