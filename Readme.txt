@@ -18,8 +18,7 @@ Travail réalisé :
 - Ajout d'une confirmation (en boite d'alerte) quand l'envoi du formulaire est réussi,
 - Ajout de la fonctionnalité de fermeture du formulaire,
 - Correction d'erreurs de validation et ajout de validations en JavaScript,
-- Début de mise en place d'une nouvelle confirmation d'envoi de formulaire réussi.
+- Mise en place d'une nouvelle confirmation d'envoi de formulaire réussi.
 
 Travail à faire :
-- Nouvelle confirmation d'envoi de formulaire réussi,
 - Dernières améliorations éventuelles à apporter.
