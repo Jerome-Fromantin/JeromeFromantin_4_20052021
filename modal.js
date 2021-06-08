@@ -318,11 +318,12 @@ function validate() {
   }
   
   //alert("Ce formulaire est validé !");
+  alert("Validation provisoire");
   return true;
-  function openValid() { // Fonction d'ouverture de la validation.
+  /*function openValid() { // Fonction d'ouverture de la validation.
     let validContent = document.querySelector(".valid-content");
     validContent.style.display = "block";
-  }
+  }*/
 }
 
 // Fonction d'écoute du clic sur bouton de fermeture du formulaire pour la fonction suivante.
