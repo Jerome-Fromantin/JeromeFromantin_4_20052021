@@ -1,506 +1,519 @@
 :root {
-    --font-default: "DM Sans", Arial, Helvetica, sans-serif;
-    --font-slab: var(--font-default);
-    --modal-duration: 0.8s;
-  }
-  * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
+  --font-default: "DM Sans", Arial, Helvetica, sans-serif;
+  --font-slab: var(--font-default);
+  --modal-duration: 0.8s;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
-  /* Landing Page. */
-  body {
-    display: flex;
-    flex-direction: column;
-    background-image: url("background.png");
-    font-family: var(--font-default);
-    font-size: 18px;
-    max-width: 1300px;
-    margin: 0 auto;
-  }
-  
-  p {
-    padding: 0.5vw;
-    margin-bottom: 0;
-  }
-  
-  img {
-    padding-right: 1rem;
-  }
-  
-  /* Logo et barre de navigation. */
-  .topnav {
-    overflow: hidden;
-    margin: 3.5%;
-  }
-  
-  /* Logo. */
-  .header-logo {
-    float: left;
-  }
-  
-  /* Barre de navigation. */
-  .main-navbar {
-    float: right;
-  }
-  
+/* Landing Page. */
+body {
+  display: flex;
+  flex-direction: column;
+  background-image: url("background.png");
+  font-family: var(--font-default);
+  font-size: 18px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+p {
+  padding: 0.5vw;
+  margin-bottom: 0;
+}
+
+img {
+  padding-right: 1rem;
+}
+
+/* Logo et barre de navigation. */
+.topnav {
+  overflow: hidden;
+  margin: 3.5%;
+}
+
+/* Logo. */
+.header-logo {
+  float: left;
+}
+
+/* Barre de navigation. */
+.main-navbar {
+  float: right;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: Roboto, sans-serif;
+  padding: 12px;
+  margin: 5px;
+}
+
+.topnav a.active, .topnav a:hover {
+  background-color: #f00;
+  color: #fff;
+  border-radius: 15px;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
   .topnav a {
-    float: left;
-    display: block;
-    color: #000;
-    text-align: center;
-    text-decoration: none;
-    font-size: 20px;
-    font-family: Roboto, sans-serif;
-    padding: 12px;
-    margin: 5px;
-  }
-  
-  .topnav a.active, .topnav a:hover {
-    background-color: #f00;
-    color: #fff;
-    border-radius: 15px;
-  }
-  
-  .topnav .icon {
     display: none;
   }
-  
-  @media screen and (max-width: 768px) {
-    .topnav a {
-      display: none;
-    }
-    .topnav a.icon {
-      float: right;
-      display: block;
-    }
-    .topnav.responsive {
-      position: relative;
-    }
-    .topnav.responsive .icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .topnav.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
+  .topnav a.icon {
+    float: right;
+    display: block;
   }
-  
-  main {
-    font-size: 130%;
-    font-weight: bolder;
-    color: #fff;
-    text-align: justify;
-    padding: 0.5vw 2vw 0 2vw;
-    border-radius: 2rem;
-    margin: 1px 20px 15px;
-  }
-  
-  /* Section centrale. */
-  .hero-section {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    overflow: hidden;
-    min-height: 93vh;
-    box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
-  
-  /* Partie gauche. */
-  .hero-content {
-    grid-column: span 4;
+  .topnav.responsive {
     position: relative;
-    background: #232323;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
     text-align: left;
-    min-width: 424px;
-    padding: 51px 67px;
   }
-  
-  .hero-content::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: #232323;
-    position: absolute;
-    right: -80px;
-    top: 0;
-  }
-  
-  .hero-content > * {
-    position: relative;
-    z-index: 1;
-  }
-  
+}
+
+main {
+  font-size: 130%;
+  font-weight: bolder;
+  color: #fff;
+  text-align: justify;
+  padding: 0.5vw 2vw 0 2vw;
+  border-radius: 2rem;
+  margin: 1px 20px 15px;
+}
+
+/* Section centrale. */
+.hero-section {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  overflow: hidden;
+  min-height: 93vh;
+  box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Partie gauche. */
+.hero-content {
+  grid-column: span 4;
+  position: relative;
+  background: #232323;
+  text-align: left;
+  min-width: 424px;
+  padding: 51px 67px;
+}
+
+.hero-content::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #232323;
+  position: absolute;
+  right: -80px;
+  top: 0;
+}
+
+.hero-content > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-headline {
+  font-size: 6rem;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.hero-text {
+  font-weight: normal;
+  width: 146%;
+  padding: 0;
+  margin-top: 57px;
+}
+
+/* Voir ".btn-signup" ligne 464 à 485. */
+
+.modal-btn {
+  cursor: pointer;
+  display: flex;
+  background: #fe142f;
+  font-size: 145%;
+  padding: 0.75rem 2.5rem;
+  border-radius: 1rem;
+  margin: auto;
+}
+
+.modal-btn:hover {
+  background: #3876ac;
+}
+
+/* Partie droite. */
+.hero-img {
+  grid-column: span 8;
+}
+
+.hero-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+/* Bouton d'inscription pour max 800 px. */
+.hero-section > .btn-signup {
+  display: none;
+}
+
+footer {
+  padding: 0 2vw;
+  margin: 0 20px;
+}
+
+.copyrights {
+  color: #fe142f;
+  font-weight: bolder;
+  font-size: 1rem;
+  padding: 0;
+  margin: 60px 0 30px;
+}
+
+@media all and (max-width: 960px) {
   .hero-headline {
-    font-size: 6rem;
-    font-weight: normal;
-    white-space: nowrap;
+    font-size: 5.5rem;
   }
-  
+}
+@media all and (max-width: 920px) {
+  .hero-headline {
+    font-size: 5rem;
+  }
+}
+@media all and (max-width: 880px) {
+  .hero-headline {
+    font-size: 4.5rem;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .hero-section {
+    display: block;
+    box-shadow: unset;
+  }
+  .hero-content {
+    background: #fff;
+    color: #000;
+    padding: 20px;
+  }
+  .hero-content::after {
+    content: unset;
+  }
+  .hero-content .btn-signup {
+    display: none;
+  }
+  .hero-headline {
+    white-space: normal;
+  }
   .hero-text {
-    font-weight: normal;
-    width: 146%;
-    padding: 0;
-    margin-top: 57px;
+    width: unset;
+    font-size: 1.5rem;
   }
-
-  /* Voir ".btn-signup" ligne 464 à 485. */
-  
-  .modal-btn {
-    cursor: pointer;
-    display: flex;
-    background: #fe142f;
-    font-size: 145%;
-    padding: 0.75rem 2.5rem;
-    border-radius: 1rem;
-    margin: auto;
-  }
-  
-  .modal-btn:hover {
-    background: #3876ac;
-  }
-  
-  /* Partie droite. */
-  .hero-img {
-    grid-column: span 8;
-  }
-  
   .hero-img img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 0;
+    border-radius: 10px;
+    margin-top: 40px;
   }
-  
-  /* Bouton d'inscription pour max 800 px. */
   .hero-section > .btn-signup {
-    display: none;
+    display: block;
+    margin: 32px auto 10px;
+    padding: 12px 35px;
   }
-  
-  footer {
-    padding: 0 2vw;
-    margin: 0 20px;
-  }
-  
   .copyrights {
-    color: #fe142f;
-    font-weight: bolder;
-    font-size: 1rem;
-    padding: 0;
-    margin: 60px 0 30px;
-  }
-  
-  @media all and (max-width: 960px) {
-    .hero-headline {
-      font-size: 5.5rem;
-    }
-  }
-  @media all and (max-width: 920px) {
-    .hero-headline {
-      font-size: 5rem;
-    }
-  }
-  @media all and (max-width: 880px) {
-    .hero-headline {
-      font-size: 4.5rem;
-    }
-  }
-  
-  @media all and (max-width: 800px) {
-    .hero-section {
-      display: block;
-      box-shadow: unset;
-    }
-    .hero-content {
-      background: #fff;
-      color: #000;
-      padding: 20px;
-    }
-    .hero-content::after {
-      content: unset;
-    }
-    .hero-content .btn-signup {
-      display: none;
-    }
-    .hero-headline {
-      white-space: normal;
-    }
-    .hero-text {
-      width: unset;
-      font-size: 1.5rem;
-    }
-    .hero-img img {
-      border-radius: 10px;
-      margin-top: 40px;
-    }
-    .hero-section > .btn-signup {
-      display: block;
-      margin: 32px auto 10px;
-      padding: 12px 35px;
-    }
-    .copyrights {
-      text-align: center;
-      margin-top: 50px;
-    }
-  }
-  
-  @media all and (max-width: 460px) {
-    .hero-content, .hero-headline, .hero-text {
-      max-width: 80vw;
-      padding: 0;
-    }
-    .hero-headline {
-      font-size: 3rem;
-    }
-  }
-  
-  /* Tout l'arrière-plan de la fenêtre modale quand le formulaire est ouvert. */
-  .bground {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(26, 39, 156, 0.4);
-  }
-  
-  /* Bloc central du formulaire. */
-  /* Tout le contenu. */
-  .content {
-    background: #232323;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    padding-top: 10px;
-    border-radius: 10px;
-    margin: 5% auto;
-    animation-name: modalopen;
-    animation-duration: var(--modal-duration);
-  }
-  
-  @keyframes modalopen {
-    from {
-      opacity: 0;
-      transform: translateY(-150px);
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  /* Bouton de fermeture du formulaire. */
-  .close {
-    cursor: pointer;
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    width: 32px;
-    height: 32px;
-    opacity: 1;
-    transform: scale(0.7);
-  }
-  
-  .close:before,
-  .close:after {
-    position: absolute;
-    left: 15px;
-    content: " ";
-    height: 33px;
-    width: 3px;
-    background-color: #fff;
-  }
-  
-  .close:before {
-    transform: rotate(45deg);
-  }
-  
-  .close:after {
-    transform: rotate(-45deg);
-  }
-  
-  @keyframes modalclose {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-      transform: translateY(-150px);
-    }
-  }
-
-  /* Le formulaire lui-même. */
-  .modal-body {
-    padding: 15px 8%;
-    margin: 15px auto;
-  }
-
-  #first-mess, #last-mess, #email-mess, #birthdate-mess, #quantity-mess,
-  #locations-mess, #sq-checkbox-mess {
-    display: block;
-    font-size: 0.5em;
-    color: #e54858;
-    text-align: right;
-    line-height: 0.5;
-    margin: 7px 0;
-    transition: 0.3s;
-  }
-  
-  /* Noms des champs. */
-  label {
-    font-family: var(--font-default);
-    font-size: 17px;
-    font-weight: normal;
-    display: inline-block;
-    margin-bottom: 11px;
-  }
-  
-  /* Tous les champs de saisie. */
-  input {
-    padding: 8px;
-    border: 0.8px solid #ccc;
-    outline: none;
-  }
-  
-  /* Champs de saisie textuels. */
-  .text-control {
-    font-size: 20px;
-    width: 100%;
-    height: 48px;
-    padding: 8px;
-    border-radius: 8px;
-    margin: 0;
-  }
-  
-  /* Titre du choix des villes. */
-  .text-label {
-    font-weight: normal;
-    font-size: 16px;
-  }
-  
-  /* Cases à cocher : ronds et carrés. */
-  .checkbox-input {
-    display: none;
-  }
-  
-  /* Ronds verts et noms de villes. */
-  /* Carrés et phrases. */
-  .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
-  .checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
-    opacity: 1;
-  }
-  
-  .checkbox-input:checked + .checkbox2-label .checkbox-icon {
-    background: #279e7a;
-  }
-  
-  .checkbox-label,
-  .checkbox2-label {
-    position: relative;
-    font-size: 12px;
-    font-weight: normal;
-    margin-left: 36px;
-  }
-  
-  .checkbox-label .checkbox-icon,
-  .checkbox2-label .checkbox-icon {
-    display: block;
-    position: absolute;
-    left: -30px;
-    top: -1px;
-    text-indent: 29px;
-    white-space: nowrap;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #279e7a;
-    border-radius: 50%;
-    transition: 0.3s;
-  }
-  
-  .checkbox-label .checkbox-icon::after,
-  .checkbox2-label .checkbox-icon::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    background-color: #279e7a;
-    opacity: 0;
-    text-indent: 29px;
-    white-space: nowrap;
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: 0.3s;
-  }
-  
-  .checkbox2-label .checkbox-icon {
-    border: 0;
-    border-radius: 4px;
-    background: #c4c4c4;
-  }
-  
-  .checkbox2-label .checkbox-icon::after {
-    left: 21%;
-    top: 19%;
-    background: transparent;
-    width: 7px;
-    height: 4px;
-    border: 2px solid transparent;
-    border-bottom-color: #fff;
-    border-left-color: #fff;
-    border-radius: 2px;
-    transform: rotate(-55deg);
-  }
-  
-  /* Boutons d'inscription et de formulaire. */
-  .btn-submit,
-  .btn-signup {
-    cursor: pointer;
-    display: block;
-    background: #fe142f;
-    font-size: 1rem;
-    color: #fff;
-    padding: 12px 82px;
-    border: 0;
-    border-radius: 7px;
-    margin: 0 auto;
-  }
-  
-  /* Boutons d'inscription seulement. */
-  .btn-signup {
-    outline: none;
-    text-transform: capitalize;
-    font-size: 1.3rem;
-    padding: 15px 23px;
-    margin: 59px 0 0 0;
-  }
-
-  /* Fenêtre de validation finale. */
-  .valid-content {
-    display: none;
-    background: #232323;
-    position: absolute; /* Par rapport à ".content" ligne 277. */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    max-width: 500px;
-    padding-top: 60%;
-    border-radius: 10px;
-    margin: 0 auto;
-  }
-
-  /* Paragraphe de validation. */
-  #validation {
     text-align: center;
+    margin-top: 50px;
+  }
+}
+
+@media all and (max-width: 460px) {
+  .hero-content, .hero-headline, .hero-text {
+    max-width: 80vw;
+    padding: 0;
+  }
+  .hero-headline {
     font-size: 3rem;
   }
+}
+
+/* Tout l'arrière-plan de la fenêtre modale quand le formulaire est ouvert. */
+.bground {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
+
+/* Bloc central du formulaire. */
+/* Tout le contenu. */
+.content {
+  background: #232323;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  padding-top: 10px;
+  border-radius: 10px;
+  margin: 5% auto;
+  animation: modalopen var(--modal-duration);
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Boutons de fermeture du formulaire et de la page de confirmation. */
+.close {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  transform: scale(0.7);
+}
+
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
+}
+
+/* Bouton de fermeture du formulaire et bouton rouge de validation de la page de confirmation. */
+/* Cette classe est utilisée quand l'un de ces boutons est cliqué. */
+/*
+.close-modal {
+  animation: modalclose var(--modal-duration);
+}
+
+@keyframes modalclose {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+}
+*/
+
+/* Le formulaire lui-même. */
+.modal-body {
+  padding: 15px 8%;
+  margin: 15px auto;
+}
+
+#first-mess, #last-mess, #email-mess, #birthdate-mess, #quantity-mess,
+#locations-mess, #sq-checkbox-mess {
+  display: block;
+  font-size: 0.5em;
+  color: #e54858;
+  text-align: right;
+  line-height: 0.5;
+  margin: 7px 0;
+  transition: 0.3s;
+}
+
+/* Noms des champs. */
+label {
+  font-family: var(--font-default);
+  font-size: 17px;
+  font-weight: normal;
+  display: inline-block;
+  margin-bottom: 11px;
+}
+
+/* Tous les champs de saisie. */
+input {
+  padding: 8px;
+  border: 0.8px solid #ccc;
+  outline: none;
+}
+
+/* Champs de saisie textuels. */
+.text-control {
+  font-size: 20px;
+  width: 100%;
+  height: 48px;
+  padding: 8px;
+  border-radius: 8px;
+  margin: 0;
+}
+
+/* Titre du choix des villes. */
+.text-label {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+/* Cases à cocher : ronds et carrés. */
+.checkbox-input {
+  display: none;
+}
+
+/* Ronds verts et noms de villes. */
+/* Carrés et phrases. */
+.checkbox-input:checked + .checkbox-label .checkbox-icon::after,
+.checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
+  opacity: 1;
+}
+
+.checkbox-input:checked + .checkbox2-label .checkbox-icon {
+  background: #279e7a;
+}
+
+.checkbox-label,
+.checkbox2-label {
+  position: relative;
+  font-size: 12px;
+  font-weight: normal;
+  margin-left: 36px;
+}
+
+.checkbox-label .checkbox-icon,
+.checkbox2-label .checkbox-icon {
+  display: block;
+  position: absolute;
+  left: -30px;
+  top: -1px;
+  text-indent: 29px;
+  white-space: nowrap;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #279e7a;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.checkbox-label .checkbox-icon::after,
+.checkbox2-label .checkbox-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: #279e7a;
+  opacity: 0;
+  text-indent: 29px;
+  white-space: nowrap;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+}
+
+.checkbox2-label .checkbox-icon {
+  border: 0;
+  border-radius: 4px;
+  background: #c4c4c4;
+}
+
+.checkbox2-label .checkbox-icon::after {
+  left: 21%;
+  top: 19%;
+  background: transparent;
+  width: 7px;
+  height: 4px;
+  border: 2px solid transparent;
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+  border-radius: 2px;
+  transform: rotate(-55deg);
+}
+
+/* Boutons d'inscription et de formulaire. */
+.btn-submit,
+.btn-signup {
+  cursor: pointer;
+  display: block;
+  background: #fe142f;
+  font-size: 1rem;
+  color: #fff;
+  padding: 12px 82px;
+  border: 0;
+  border-radius: 7px;
+  margin: 0 auto;
+}
+
+/* Boutons d'inscription seulement. */
+.btn-signup {
+  outline: none;
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  padding: 15px 23px;
+  margin: 59px 0 0 0;
+}
+
+/* Fenêtre de validation finale. */
+.valid-content {
+  display: none;
+  background: #232323;
+  position: absolute; /* Par rapport à ".content" ligne 277. */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  padding-top: 60%;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+/* Paragraphe de validation. */
+#valid-text {
+  text-align: center;
+  font-size: 3rem;
+}
+
+@media all and (max-width: 460px) {
+  #valid-text {
+    font-size: 2rem;
+  }
+}

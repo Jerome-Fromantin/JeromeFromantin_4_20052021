@@ -50,7 +50,7 @@
 
       <div class="bground">
         <div class="content">
-          <span class="close" id="close-btn1" onclick="closeModal()"></span>
+          <span class="close close-modal" id="close-modal-btn" onclick="closeModal()"></span>
           <div class="modal-body">
             <form
               name="reserve"
@@ -227,12 +227,12 @@
             </form>
           </div>
           <div class="valid-content">
-            <span class="close" id="close-btn2" onclick="closeValid()"></span>
+            <span class="close" id="close-valid-btn" onclick="closeValid()"></span>
             <div class="modal-body">
               <form name="validation" action="index.html" method="post">
-                <p id="validation">Merci<br>d'avoir fourni<br>vos données<br>d'enregistrement.</p>
+                <p id="valid-text">Merci<br>d'avoir fourni<br>vos données<br>d'enregistrement.</p>
                 <input
-                  class="btn-submit"
+                  class="btn-submit close-modal"
                   type="submit"
                   value="Valider et fermer"
                   onclick="closeModal()"

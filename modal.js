@@ -395,12 +395,15 @@ function validate() {
   return false;
 }
 
-// Fonction d'écoute du clic sur bouton de fermeture du formulaire pour la fonction suivante.
-let closeBtn1 = document.getElementById("close-btn1");
-closeBtn1.addEventListener('click', closeModal);
+// Fonction d'écoute des clics sur bouton de fermeture du formulaire
+// et bouton rouge de validation de la page de confirmation pour la fonction suivante.
+let closeModalBtns = document.querySelectorAll(".close-modal");
+closeModalBtns.forEach((closebtn) => closebtn.addEventListener('click', closeModal));
 
-// Fonction de fermeture du formulaire.
+// Fonction de fermeture du modal (formulaire et fond bleuté).
 function closeModal() {
+  //let content = document.getElementsByClassName(content);
+  //content.classList.add("close-modal");
   modalbg.style.display = "none";
 }
 
@@ -411,10 +414,10 @@ function openValid() {
 }
 
 // Fonction d'écoute du clic sur bouton de fermeture de la validation pour la fonction suivante.
-let closeBtn2 = document.getElementById("close-btn2");
-closeBtn2.addEventListener('click', closeValid);
+let closeValidBtn = document.getElementById("close-valid-btn");
+closeValidBtn.addEventListener('click', closeValid);
 
-// Fonction de fermeture de la validation.
+// Fonction de fermeture de la validation seulement.
 function closeValid() {
   validContent.style.display = "none";
 }
