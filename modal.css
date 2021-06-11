@@ -149,7 +149,7 @@ main {
   margin-top: 57px;
 }
 
-/* Voir ".btn-signup" ligne 464 à 485. */
+/* Voir ".btn-signup" ligne 453 à 474. */
 
 .modal-btn {
   cursor: pointer;
@@ -325,24 +325,6 @@ footer {
 .close:after {
   transform: rotate(-45deg);
 }
-
-/* Bouton de fermeture du formulaire et bouton rouge de validation de la page de confirmation. */
-/* Cette classe est utilisée quand l'un de ces boutons est cliqué. */
-/*
-.close-modal {
-  animation: modalclose var(--modal-duration);
-}
-
-@keyframes modalclose {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-150px);
-  }
-}
-*/
 
 /* Le formulaire lui-même. */
 .modal-body {

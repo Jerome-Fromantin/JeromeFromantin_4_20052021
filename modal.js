@@ -152,14 +152,25 @@ function validate() {
 
   // Récupération de la date du jour (jour - mois - année).
   let dateDuJour = new Date();
+
+  /***** Variables pour la fonctionnalité de prise en compte de la majorité. *****/
   // Récupération du jour seulement pour le jour de majorité.
-  let jourMajorite = dateDuJour.getDate();
+  //let jourMajorite = dateDuJour.getDate();
   // Récupération du mois seulement pour le mois de majorité.
   // "+ 1" est nécessaire car les mois vont de 0 à 11, pas de 1 à 12.
-  let moisMajorite = (dateDuJour.getMonth() + 1);
+  //let moisMajorite = (dateDuJour.getMonth() + 1);
   // Récupération de l'année seulement pour l'année de majorité.
   // Il faut donc enlever 18 ans.
-  let anneeMajorite = (dateDuJour.getFullYear()-18);
+  //let anneeMajorite = (dateDuJour.getFullYear()-18);
+  /***** Fin des variables. *****/
+
+  // Récupération du jour seulement.
+  let jourEnCours = dateDuJour.getDate();
+  // Récupération du mois seulement.
+  // "+ 1" est nécessaire car les mois vont de 0 à 11, pas de 1 à 12.
+  let moisEnCours = (dateDuJour.getMonth() + 1);
+  // Récupération de l'année seulement.
+  let anneeEnCours = (dateDuJour.getFullYear());
 
   // La valeur du champ "date de naissance" est une chaîne de caractères au format "yyyy-MM-dd".
   // split("-") permet de couper cette chaîne à chaque caractère "-".
@@ -181,6 +192,56 @@ function validate() {
     birthdate.focus();
     return false;
   }
+  // Sinon (si l'année de naissance est postérieure ou égale à 1921), si antérieur à l'année en cours.
+  else if (splitBirth[0] < anneeEnCours) { // splitBirth[0] est la 1ère valeur du tableau, c'est l'année.
+    birthdateVal.style.color = "#279e7a";
+    birthdateVal.innerHTML = "<p>Votre date de naissance est validée !</p>";
+    birthdate.style.border = "2px #279e7a solid";
+  }
+  // Sinon (si postérieur ou égal à l'année en cours), si postérieur.
+  else if (splitBirth[0] > anneeEnCours) {
+    birthdateErr.style.color = "#e54858";
+    birthdateErr.innerHTML = "<p>Votre date de naissance ne peut pas être postérieure à la date du jour.</p>";
+    birthdate.style.border = "2px #e54858 solid";
+    birthdate.focus();
+    return false;
+  }
+  // Sinon (si égal à l'année en cours), si mois de naissance antérieur à mois en cours.
+  else if (splitBirth[1] < moisEnCours) { // splitBirth[1] est la 2ème valeur du tableau, c'est le mois.
+    birthdateVal.style.color = "#279e7a";
+    birthdateVal.innerHTML = "<p>Votre date de naissance est validée !</p>";
+    birthdate.style.border = "2px #279e7a solid";
+  }
+  // Sinon (si postérieur ou égal au mois en cours), si postérieur.
+  else if (splitBirth[1] > moisEnCours) {
+    birthdateErr.style.color = "#e54858";
+    birthdateErr.innerHTML = "<p>Votre date de naissance ne peut pas être postérieure à la date du jour.</p>";
+    birthdate.style.border = "2px #e54858 solid";
+    birthdate.focus();
+    return false;
+  }
+  // Sinon (si égal au mois en cours), si jour de naissance antérieur à jour en cours.
+  else if (splitBirth[2] < jourEnCours) { // splitBirth[2] est la 3ème valeur du tableau, c'est le jour.
+    birthdateVal.style.color = "#279e7a";
+    birthdateVal.innerHTML = "<p>Votre date de naissance est validée !</p>";
+    birthdate.style.border = "2px #279e7a solid";
+  }
+  // Sinon (si postérieur ou égal au jour en cours), si postérieur.
+  else if (splitBirth[2] > jourEnCours) {
+    birthdateErr.style.color = "#e54858";
+    birthdateErr.innerHTML = "<p>Votre date de naissance ne peut pas être postérieure à la date du jour.</p>";
+    birthdate.style.border = "2px #e54858 solid";
+    birthdate.focus();
+    return false;
+  }
+  // Sinon (si égal au jour en cours).
+  else {
+    birthdateVal.style.color = "#279e7a";
+    birthdateVal.innerHTML = "<p>Votre date de naissance est validée !</p>";
+    birthdate.style.border = "2px #279e7a solid";
+  }
+  /***** Fonctionnalité de prise en compte de la majorité. *****/
+  /*
   // Sinon (si l'année de naissance est postérieure ou égale à 1921), si antérieur à l'année de majorité (2003).
   else if (splitBirth[0] < anneeMajorite) { // splitBirth[0] est la 1ère valeur du tableau, c'est l'année.
     birthdateVal.style.color = "#279e7a";
@@ -229,6 +290,8 @@ function validate() {
     birthdateVal.innerHTML = "<p>Majeur aujourd'hui, votre date de naissance est validée !</p>";
     birthdate.style.border = "2px #279e7a solid";
   }
+  */
+  /***** Fin de la fonctionnalité de prise en compte de la majorité. *****/
 
   /*********** CHAMP DU NOMBRE DE TOURNOIS. ***********/
 
@@ -244,10 +307,10 @@ function validate() {
     quantity.focus();
     return false;
   }
-  // Sinon (si le nombre de tournois n'est pas vide), s'il est inférieur à 1 ou supérieur ou égal à 100.
-  else if (quantite < 1 || quantite >= 100) {
+  // Sinon (si le nombre de tournois n'est pas vide), s'il est inférieur à 0 ou supérieur ou égal à 100.
+  else if (quantite < 0 || quantite >= 100) {
     quantityErr.style.color = "#e54858";
-    quantityErr.innerHTML = "<p>Veuillez indiquer un nombre entre 1 et 99 inclus.</p>";
+    quantityErr.innerHTML = "<p>Veuillez indiquer un nombre entre 0 et 99 inclus.</p>";
     quantity.style.border = "2px #e54858 solid";
     quantity.focus();
     return false;
@@ -272,35 +335,46 @@ function validate() {
   // Si aucune ville n'est cochée.
   if (location1.checked == false && location2.checked == false && location3.checked == false
   && location4.checked == false && location5.checked == false && location6.checked == false) {
-    locationsErr.style.color = "#e54858";
-    locationsErr.innerHTML = "<p>Vous devez cocher au moins l'une des villes.</p>";
-    return false;
+    if (quantite == 0) {
+      locationsVal.style.color = "#279e7a";
+      locationsVal.innerHTML = "<p>Vous n'avez participé à aucun tournoi, donc pas de ville à cocher.</p>";
+    }
+    else {
+      locationsErr.style.color = "#e54858";
+      locationsErr.innerHTML = "<p>Vous devez cocher au moins l'une des villes.</p>";
+      return false;
+    }
   }
   else { // Sinon (si une ou plusieurs villes sont cochées).
     // Si une seule ville est cochée.
-    if (location1.checked) {
-      locationsVal.style.color = "#279e7a";
-      locationsVal.innerHTML = "<p>Vous avez coché " + location1.value + ", votre choix est validé !</p>";
-    }
-    if (location2.checked) {
-      locationsVal.style.color = "#279e7a";
-      locationsVal.innerHTML = "<p>Vous avez coché " + location2.value + ", votre choix est validé !</p>";
-    }
-    if (location3.checked) {
-      locationsVal.style.color = "#279e7a";
-      locationsVal.innerHTML = "<p>Vous avez coché " + location3.value + ", votre choix est validé !</p>";
-    }
-    if (location4.checked) {
-      locationsVal.style.color = "#279e7a";
-      locationsVal.innerHTML = "<p>Vous avez coché " + location4.value + ", votre choix est validé !</p>";
-    }
-    if (location5.checked) {
-      locationsVal.style.color = "#279e7a";
-      locationsVal.innerHTML = "<p>Vous avez coché " + location5.value + ", votre choix est validé !</p>";
-    }
-    if (location6.checked) {
-      locationsVal.style.color = "#279e7a";
-      locationsVal.innerHTML = "<p>Vous avez coché " + location6.value + ", votre choix est validé !</p>";
+    if (location1.checked || location2.checked || location3.checked || location4.checked
+      || location5.checked|| location6.checked) {
+      if (quantite == 0) {
+        locationsVal.style.color = "#e54858";
+        locationsVal.innerHTML = "<p>Vous n'avez participé à aucun tournoi, vous ne pouvez cocher de ville.</p>";
+        return false;
+      }
+      else {
+        locationsVal.style.color = "#279e7a";
+        if (location1.checked) {
+          locationsVal.innerHTML = "<p>Vous avez coché " + location1.value + ", votre choix est validé !</p>";
+        }
+        if (location2.checked) {
+          locationsVal.innerHTML = "<p>Vous avez coché " + location2.value + ", votre choix est validé !</p>";
+        }
+        if (location3.checked) {
+          locationsVal.innerHTML = "<p>Vous avez coché " + location3.value + ", votre choix est validé !</p>";
+        }
+        if (location4.checked) {
+          locationsVal.innerHTML = "<p>Vous avez coché " + location4.value + ", votre choix est validé !</p>";
+        }
+        if (location5.checked) {
+          locationsVal.innerHTML = "<p>Vous avez coché " + location5.value + ", votre choix est validé !</p>";
+        }
+        if (location6.checked) {
+          locationsVal.innerHTML = "<p>Vous avez coché " + location6.value + ", votre choix est validé !</p>";
+        }
+      }
     }
     // Si deux villes sont cochées.
     if (location1.checked && location2.checked || location1.checked && location3.checked
@@ -311,8 +385,15 @@ function validate() {
       || location3.checked && location5.checked || location3.checked && location6.checked
       || location4.checked && location5.checked || location4.checked && location6.checked
       || location5.checked && location6.checked) {
-      locationsVal.style.color = "#279e7a";
-      locationsVal.innerHTML = "<p>Vous avez coché deux villes, votre choix est validé !</p>";
+      if (quantite < 2) {
+        locationsVal.style.color = "#e54858";
+        locationsVal.innerHTML = "<p>Vous ne pouvez cocher plus de villes que de tournois joués.</p>";
+        return false;
+      }
+      else {
+        locationsVal.style.color = "#279e7a";
+        locationsVal.innerHTML = "<p>Vous avez coché deux villes, votre choix est validé !</p>";
+      }
     }
     // Si trois villes sont cochées.
     if (location1.checked && location2.checked && location3.checked
@@ -335,8 +416,15 @@ function validate() {
       || location3.checked && location4.checked && location6.checked
       || location3.checked && location5.checked && location6.checked
       || location4.checked && location5.checked && location6.checked) {
-      locationsVal.style.color = "#279e7a";
-      locationsVal.innerHTML = "<p>Vous avez coché trois villes, votre choix est validé !</p>";
+      if (quantite < 3) {
+        locationsVal.style.color = "#e54858";
+        locationsVal.innerHTML = "<p>Vous ne pouvez cocher plus de villes que de tournois joués.</p>";
+        return false;
+      }
+      else {
+        locationsVal.style.color = "#279e7a";
+        locationsVal.innerHTML = "<p>Vous avez coché trois villes, votre choix est validé !</p>";
+      }
     }
     // Si quatre villes sont cochées.
     if (location1.checked && location2.checked && location3.checked && location4.checked
@@ -354,8 +442,15 @@ function validate() {
       || location2.checked && location3.checked && location5.checked && location6.checked
       || location2.checked && location4.checked && location5.checked && location6.checked
       || location3.checked && location4.checked && location5.checked && location6.checked) {
-      locationsVal.style.color = "#279e7a";
-      locationsVal.innerHTML = "<p>Vous avez coché quatre villes, votre choix est validé !</p>";
+      if (quantite < 4) {
+        locationsVal.style.color = "#e54858";
+        locationsVal.innerHTML = "<p>Vous ne pouvez cocher plus de villes que de tournois joués.</p>";
+        return false;
+      }
+      else {
+        locationsVal.style.color = "#279e7a";
+        locationsVal.innerHTML = "<p>Vous avez coché quatre villes, votre choix est validé !</p>";
+      }
     }
     // Si cinq villes sont cochées.
     if (location1.checked && location2.checked && location3.checked && location4.checked && location5.checked
@@ -364,14 +459,28 @@ function validate() {
       || location1.checked && location2.checked && location4.checked && location5.checked && location6.checked
       || location1.checked && location3.checked && location4.checked && location5.checked && location6.checked
       || location2.checked && location3.checked && location4.checked && location5.checked && location6.checked) {
-      locationsVal.style.color = "#279e7a";
-      locationsVal.innerHTML = "<p>Vous avez coché cinq villes, votre choix est validé !</p>";
+      if (quantite < 5) {
+        locationsVal.style.color = "#e54858";
+        locationsVal.innerHTML = "<p>Vous ne pouvez cocher plus de villes que de tournois joués.</p>";
+        return false;
+      }
+      else {
+        locationsVal.style.color = "#279e7a";
+        locationsVal.innerHTML = "<p>Vous avez coché cinq villes, votre choix est validé !</p>";
+      }
     }
     // Si toutes les villes sont cochées.
     if (location1.checked && location2.checked && location3.checked
       && location4.checked && location5.checked && location6.checked) {
-      locationsVal.style.color = "#279e7a";
-      locationsVal.innerHTML = "<p>Vous avez coché toutes les villes, votre choix est validé !</p>";
+      if (quantite < 6) {
+        locationsVal.style.color = "#e54858";
+        locationsVal.innerHTML = "<p>Vous ne pouvez cocher plus de villes que de tournois joués.</p>";
+        return false;
+      }
+      else {
+        locationsVal.style.color = "#279e7a";
+        locationsVal.innerHTML = "<p>Vous avez coché toutes les villes, votre choix est validé !</p>";
+      }
     }
   }
 
@@ -402,8 +511,6 @@ closeModalBtns.forEach((closebtn) => closebtn.addEventListener('click', closeMod
 
 // Fonction de fermeture du modal (formulaire et fond bleuté).
 function closeModal() {
-  //let content = document.getElementsByClassName(content);
-  //content.classList.add("close-modal");
   modalbg.style.display = "none";
 }
 
