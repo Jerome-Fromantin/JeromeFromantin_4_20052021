@@ -19,7 +19,7 @@ Travail réalisé :
 - Ajout de la fonctionnalité de fermeture du formulaire,
 - Correction d'erreurs de validation et ajout de validations en JavaScript,
 - Mise en place d'une nouvelle confirmation d'envoi de formulaire réussi,
-- Amélioration d'apparence sur la vue "mobile".
+- Amélioration d'apparence sur la vue "mobile",
+- Dernières améliorations de validations apportées.
 
-Travail à faire :
-- Dernières améliorations éventuelles à apporter.
+Ce projet est désormais terminé mais peut éventuellement être amélioré.
