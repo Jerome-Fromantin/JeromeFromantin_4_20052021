@@ -338,7 +338,7 @@ footer {
   font-size: 0.5em;
   color: #e54858;
   text-align: right;
-  line-height: 0.5;
+  line-height: 0.9em;
   margin: 7px 0;
   transition: 0.3s;
 }
