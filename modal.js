@@ -514,7 +514,7 @@ function closeModal() {
 }
 
 // Fonction d'ouverture de la validation.
-let validContent = document.querySelector(".valid-content");
+let validContent = document.getElementById("valid-content");
 function openValid() {
   validContent.style.display = "block";
 }
@@ -530,9 +530,11 @@ function closeValid() {
 
 // Fonction d'écoute du clic sur bouton de validation de la page de confirmation pour la fonction suivante.
 let validCloseModalBtn = document.getElementById("valid-close-modal");
-validCloseModalBtn.addEventListener('submit', validCloseModal);
+validCloseModalBtn.addEventListener('click', validCloseModal);
 
 // Fonction de validation finale et fermeture du modal.
 function validCloseModal() {
   modalbg.style.display = "none";
+  validate();
+  return true;
 }
