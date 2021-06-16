@@ -50,7 +50,7 @@
 
       <div class="bground">
         <div class="content">
-          <span class="close close-modal" id="close-modal-btn" onclick="closeModal()"></span>
+          <span class="close" id="close-modal-btn" onclick="closeModal()"></span>
           <div class="modal-body">
             <form
               name="reserve"
@@ -217,7 +217,7 @@
 
               <input
                 class="btn-submit"
-                type="submit"
+                type="button"
                 value="C'est parti"
                 onclick="return validate()"
               >
@@ -226,14 +226,14 @@
           <div class="valid-content">
             <span class="close" id="close-valid-btn" onclick="closeValid()"></span>
             <div class="modal-body">
-              <form name="validation" method="post">
+              <form name="validation" method="post" onsubmit="validCloseModal()">
                 <p id="valid-text">Merci<br>d'avoir fourni<br>vos données<br>d'enregistrement.</p>
-                <button
-                  class="btn-submit close-modal"
+                <input
+                  class="btn-submit"
+                  id="valid-close-modal"
                   type="submit"
-                  onclick="closeModal()"
-                >Valider et fermer
-                </button>
+                  value="Valider et fermer"
+                >
               </form>
             </div>
           </div>
