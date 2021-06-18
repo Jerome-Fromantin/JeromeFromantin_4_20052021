@@ -551,4 +551,5 @@ validCloseModalBtn.addEventListener('click', validCloseModal);
 function validCloseModal() {
   modalbg.style.display = "none";
   validContent.style.display = "none";
+  document.getElementById("reserve").reset();
 }
