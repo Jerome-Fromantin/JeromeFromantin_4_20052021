@@ -551,6 +551,6 @@ validCloseModalBtn.addEventListener('click', validCloseModal);
 function validCloseModal() {
   document.getElementById("reserve").submit();
   modalbg.style.display = "none";
-  //validContent.style.display = "none";
+  validContent.style.display = "none";
   document.getElementById("reserve").reset();
 }
