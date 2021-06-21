@@ -549,8 +549,8 @@ validCloseModalBtn.addEventListener('click', validCloseModal);
 
 // Fonction de validation finale et fermeture du modal.
 function validCloseModal() {
-  modalbg.style.display = "none";
-  validContent.style.display = "none";
   document.getElementById("reserve").submit();
+  //modalbg.style.display = "none";
+  //validContent.style.display = "none";
   //document.getElementById("reserve").reset();
 }
