@@ -24,7 +24,7 @@ function launchModal() {
 // Fonction de validation du champ "prénom".
 function validFirstName() {
   // On crée la variable qui récupère l'input du prénom.
-  let firstName = document.forms["reserve"]["first"];
+  let firstName = document.getElementById("first");
   // On crée la variable "firstNameLength".
   // Cette variable est égale à la longueur du prénom entré auquel on a appliqué trim().
   // "trim()" est une fonction qui supprime les espaces en début et fin de chaîne.
@@ -65,7 +65,7 @@ function validFirstName() {
 
 // Fonction de validation du champ "nom".
 function validLastName() {
-  let lastName = document.forms["reserve"]["last"]; // Input du nom.
+  let lastName = document.getElementById("last"); // Input du nom.
   let lastNameLength = ((lastName.value).trim()).length;
   let lastErr = document.getElementById("last-mess");
   let lastVal = document.getElementById("last-mess");
@@ -95,7 +95,7 @@ function validLastName() {
 
 // Fonction de validation du champ "e-mail".
 function validEmail() {
-  let email = document.forms["reserve"]["email"]; // Input de l'e-mail.
+  let email = document.getElementById("email"); // Input de l'e-mail.
   let emailLength = ((email.value).trim()).length;
   let emailErr = document.getElementById("email-mess");
   let emailVal = document.getElementById("email-mess");
@@ -149,7 +149,7 @@ function validEmail() {
 
 // Fonction de validation du champ "date de naissance".
 function validBirthdate() {
-  let birthdate = document.forms["reserve"]["birthdate"]; // Input de la date de naissance.
+  let birthdate = document.getElementById("birthdate"); // Input de la date de naissance.
   let birth = birthdate.value;
   let birthdateErr = document.getElementById("birthdate-mess");
   let birthdateVal = document.getElementById("birthdate-mess");
@@ -304,7 +304,7 @@ function validBirthdate() {
 
 // Fonction de validation du champ "nombre de tournois".
 function validNumberGames() {
-  let quantity = document.forms["reserve"]["quantity"]; // Input du nombre de tournois.
+  let quantity = document.getElementById("quantity"); // Input du nombre de tournois.
   let quantite = quantity.value;
   let quantityErr = document.getElementById("quantity-mess");
   let quantityVal = document.getElementById("quantity-mess");
@@ -334,11 +334,10 @@ function validNumberGames() {
 
 // Fonction de validation du champ "choix des villes".
 function validTowns() {
-  //let locations = document.forms["reserve"]["checkbox-town"]; // Tous les inputs de villes.
   let locations = document.getElementsByClassName("checkbox-town"); // Tous les inputs de villes.
   let locationsErr = document.getElementById("locations-mess");
   let locationsVal = document.getElementById("locations-mess");
-  let quantity = document.forms["reserve"]["quantity"]; // Input du nombre de tournois.
+  let quantity = document.getElementById("quantity"); // Input du nombre de tournois.
   let quantite = quantity.value;
   
   let checked = false;
@@ -375,22 +374,23 @@ function validTowns() {
     else {
       locationsVal.style.color = "#279e7a";
       if (locations[0].checked) {
-        locationsVal.innerHTML = "<p>Vous avez coché " + locations[0].value + ", votre choix est validé !</p>";
+        // Pour l'ajout de variables dans une chaîne de caractères, utilisation de la syntaxe de ES6.
+        locationsVal.innerHTML = `<p>Vous avez coché ${locations[0].value}, votre choix est validé !</p>`;
       }
       if (locations[1].checked) {
-        locationsVal.innerHTML = "<p>Vous avez coché " + locations[1].value + ", votre choix est validé !</p>";
+        locationsVal.innerHTML = `<p>Vous avez coché ${locations[1].value}, votre choix est validé !</p>`;
       }
       if (locations[2].checked) {
-        locationsVal.innerHTML = "<p>Vous avez coché " + locations[2].value + ", votre choix est validé !</p>";
+        locationsVal.innerHTML = `<p>Vous avez coché ${locations[2].value}, votre choix est validé !</p>`;
       }
       if (locations[3].checked) {
-        locationsVal.innerHTML = "<p>Vous avez coché " + locations[3].value + ", votre choix est validé !</p>";
+        locationsVal.innerHTML = `<p>Vous avez coché ${locations[3].value}, votre choix est validé !</p>`;
       }
       if (locations[4].checked) {
-        locationsVal.innerHTML = "<p>Vous avez coché " + locations[4].value + ", votre choix est validé !</p>";
+        locationsVal.innerHTML = `<p>Vous avez coché ${locations[4].value}, votre choix est validé !</p>`;
       }
       if (locations[5].checked) {
-        locationsVal.innerHTML = "<p>Vous avez coché " + locations[5].value + ", votre choix est validé !</p>";
+        locationsVal.innerHTML = `<p>Vous avez coché ${locations[5].value}, votre choix est validé !</p>`;
       }
     }
     return true;
@@ -469,7 +469,7 @@ function validTowns() {
 
 // Fonction de validation de la case "conditions d'utilisation".
 function validUseConditions() {
-  let sqCheckbox = document.forms["reserve"]["sq-checkbox1"]; // Input de la case.
+  let sqCheckbox = document.getElementById("sq-checkbox1"); // Input de la case.
   let sqCheckboxErr = document.getElementById("sq-checkbox-mess");
   let sqCheckboxVal = document.getElementById("sq-checkbox-mess");
 
@@ -550,7 +550,7 @@ validCloseModalBtn.addEventListener('click', validCloseModal);
 // Fonction de validation finale et fermeture du modal.
 function validCloseModal() {
   document.getElementById("reserve").submit();
-  modalbg.style.display = "none";
-  validContent.style.display = "none";
-  document.getElementById("reserve").reset();
+  //modalbg.style.display = "none";
+  //validContent.style.display = "none";
+  //document.getElementById("reserve").reset();
 }
