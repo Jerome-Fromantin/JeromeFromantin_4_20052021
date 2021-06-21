@@ -549,10 +549,11 @@ validCloseModalBtn.addEventListener('click', validCloseModal);
 
 // Fonction de validation finale et fermeture du modal.
 function validCloseModal() {
-  function finalValidate() {
-    return true;
-  }
   modalbg.style.display = "none";
   validContent.style.display = "none";
   finalValidate();
+}
+
+function finalValidate() {
+  return true;
 }
