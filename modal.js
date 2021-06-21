@@ -549,7 +549,31 @@ validCloseModalBtn.addEventListener('click', validCloseModal);
 
 // Fonction de validation finale et fermeture du modal.
 function validCloseModal() {
+  function finalValidate() {
+    if (!validFirstName()) {
+      return false;
+    }
+    if (!validLastName()) {
+      return false;
+    }
+    if (!validEmail()) {
+      return false;
+    }
+    if (!validBirthdate()) {
+      return false;
+    }
+    if (!validNumberGames()) {
+      return false;
+    }
+    if (!validTowns()) {
+      return false;
+    }
+    if (!validUseConditions()) {
+      return false;
+    }
+    return true;
+  }
+  finalValidate();
   modalbg.style.display = "none";
   validContent.style.display = "none";
-  return true;
 }
