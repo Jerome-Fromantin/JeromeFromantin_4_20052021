@@ -573,7 +573,7 @@ function validCloseModal() {
     }
     return true;
   }
-  finalValidate();
   modalbg.style.display = "none";
   validContent.style.display = "none";
+  finalValidate();
 }
