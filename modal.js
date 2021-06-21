@@ -545,15 +545,10 @@ function closeValid() {
 
 // Fonction d'écoute du clic sur bouton de validation de la page de confirmation pour la fonction suivante.
 let validCloseModalBtn = document.getElementById("valid-close-modal");
-validCloseModalBtn.addEventListener('click', validCloseModal);
+validCloseModalBtn.addEventListener('submit', validCloseModal);
 
 // Fonction de validation finale et fermeture du modal.
 function validCloseModal() {
   modalbg.style.display = "none";
   validContent.style.display = "none";
-  finalValidate();
-}
-
-function finalValidate() {
-  return true;
 }
