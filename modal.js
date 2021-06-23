@@ -528,17 +528,17 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-// Fonction d'ouverture de la validation.
+// Fonction d'ouverture de la confirmation.
 let validContent = document.getElementById("valid-content");
 function openValid() {
   validContent.style.display = "block";
 }
 
-// Fonction d'écoute du clic sur bouton de fermeture de la validation pour la fonction suivante.
+// Fonction d'écoute du clic sur bouton de fermeture de la confirmation pour la fonction suivante.
 let closeValidBtn = document.getElementById("close-valid-btn");
 closeValidBtn.addEventListener('click', closeValid);
 
-// Fonction de fermeture de la validation seulement.
+// Fonction de fermeture de la confirmation seulement.
 function closeValid() {
   validContent.style.display = "none";
 }
@@ -547,11 +547,13 @@ function closeValid() {
 let validCloseModalBtn = document.getElementById("valid-close-modal");
 validCloseModalBtn.addEventListener('click', validCloseModal);
 
-// Fonction de validation finale et fermeture du modal.
+// Fonction de confirmation finale et fermeture du modal.
 function validCloseModal() {
   modalbg.style.display = "none";
   validContent.style.display = "none";
+  // Remise à 0 des entrées du formulaire.
   document.getElementById("reserve").reset();
+  // Pour chaque champ, retour à la bordure de départ et vidage du message de validation.
   first.style.border = "0.8px solid #ccc";
   document.getElementById("first-mess").innerHTML = "";
   last.style.border = "0.8px solid #ccc";
