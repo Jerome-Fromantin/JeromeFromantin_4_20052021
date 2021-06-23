@@ -20,6 +20,7 @@ Travail réalisé :
 - Correction d'erreurs de validation et ajout de validations en JavaScript,
 - Mise en place d'une nouvelle confirmation d'envoi de formulaire réussi,
 - Amélioration d'apparence sur la vue "mobile",
-- Dernières améliorations de validations apportées.
+- Dernières améliorations de validations apportées,
+- Dernières corrections sur la confirmation d'envoi.
 
 Ce projet est désormais terminé mais peut éventuellement être amélioré.
