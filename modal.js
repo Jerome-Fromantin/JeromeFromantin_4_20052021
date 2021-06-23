@@ -545,10 +545,23 @@ function closeValid() {
 
 // Fonction d'écoute du clic sur bouton de validation de la page de confirmation pour la fonction suivante.
 let validCloseModalBtn = document.getElementById("valid-close-modal");
-validCloseModalBtn.addEventListener('submit', validCloseModal);
+validCloseModalBtn.addEventListener('click', validCloseModal);
 
 // Fonction de validation finale et fermeture du modal.
 function validCloseModal() {
   modalbg.style.display = "none";
   validContent.style.display = "none";
+  document.getElementById("reserve").reset();
+  first.style.border = "0.8px solid #ccc";
+  document.getElementById("first-mess").innerHTML = "";
+  last.style.border = "0.8px solid #ccc";
+  document.getElementById("last-mess").innerHTML = "";
+  email.style.border = "0.8px solid #ccc";
+  document.getElementById("email-mess").innerHTML = "";
+  birthdate.style.border = "0.8px solid #ccc";
+  document.getElementById("birthdate-mess").innerHTML = "";
+  quantity.style.border = "0.8px solid #ccc";
+  document.getElementById("quantity-mess").innerHTML = "";
+  document.getElementById("locations-mess").innerHTML = "";
+  document.getElementById("sq-checkbox-mess").innerHTML = "";
 }

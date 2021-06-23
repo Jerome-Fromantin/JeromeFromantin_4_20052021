@@ -66,7 +66,7 @@
                   id="first"
                   name="first"
                 ><br>
-                <div id="first-mess"></div>
+                <div class="mess-validation" id="first-mess"></div>
               </div>
 
               <div class="formData">
@@ -77,7 +77,7 @@
                   id="last"
                   name="last"
                 ><br>
-                <div id="last-mess"></div>
+                <div class="mess-validation" id="last-mess"></div>
               </div>
 
               <div class="formData">
@@ -88,7 +88,7 @@
                   id="email"
                   name="email"
                 ><br>
-                <div id="email-mess"></div>
+                <div class="mess-validation" id="email-mess"></div>
               </div>
 
               <div class="formData">
@@ -99,7 +99,7 @@
                   id="birthdate"
                   name="birthdate"
                 ><br>
-                <div id="birthdate-mess"></div>
+                <div class="mess-validation" id="birthdate-mess"></div>
               </div>
 
               <div class="formData">
@@ -112,7 +112,7 @@
                   min="0"
                   max="99"
                 ><br>
-                <div id="quantity-mess"></div>
+                <div class="mess-validation" id="quantity-mess"></div>
               </div>
 
               <p class="text-label">Quelles villes ?</p>
@@ -189,7 +189,7 @@
                   <span class="checkbox-icon"></span>
                   Portland
                 </label><br>
-                <div id="locations-mess"></div>
+                <div class="mess-validation" id="locations-mess"></div>
               </div>
 
               <div class="formData">
@@ -204,7 +204,7 @@
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
-                <span id="sq-checkbox-mess"></span>
+                <span class="mess-validation" id="sq-checkbox-mess"></span>
                 <input
                   class="checkbox-input"
                   type="checkbox"
@@ -228,14 +228,16 @@
           <div class="valid-content" id="valid-content">
             <span class="close" id="close-valid-btn" onclick="closeValid()"></span>
             <div class="modal-body">
-              <form name="validation" method="POST" action="">
+              <form
+                name="validation"
+                >
                 <p id="valid-text">Merci<br>d'avoir fourni<br>vos données<br>d'enregistrement.</p>
                 <input
                   class="btn-submit"
                   id="valid-close-modal"
-                  type="submit"
+                  type="button"
                   value="Valider et fermer"
-                  onsubmit="validCloseModal()"
+                  onclick="validCloseModal()"
                 >
               </form>
             </div>
